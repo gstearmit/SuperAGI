@@ -128,7 +128,7 @@ cd SuperAGI
 
 5. Once you have Docker Desktop running, run the following command in the in the SuperAGI directory :
 ```
-docker-compose up --build
+docker-compose up --build -d
 ```
 
 6. Open your web browser and navigate to http://localhost:3000 to access SuperAGI.
