@@ -1,3 +1,12 @@
-	 run : docker-compose up --build -d
 
-	 docker-compose -f docker-compose.yml -f docker-compose-dev.yaml up -d
+### KEY:
+     https://makersuite.google.com/app/apikey
+   	 https://app.pinecone.io/organizations/-NjWNNa6WrqzEtaymppV/projects/gcp-starter:12ofuai/indexes
+   	 https://replicate.com/docs/get-started/python
+   	 https://github.com/settings/tokens
+   	 https://console.cloud.google.com/apis/credentials?project=superagi-405513 # https://cloud.google.com/apis/?  # Google API KEY (API SEARCH Custom )
+   	 https://programmablesearchengine.google.com/about/
+### Run :
+
+	 docker-compose up --build -d
+     docker-compose -f docker-compose.yaml -f docker-compose-dev.yaml up -d
