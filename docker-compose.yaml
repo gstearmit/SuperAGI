@@ -3,6 +3,7 @@ services:
   backend:
     volumes:
       - "./:/app"
+      - "/d/WorkSpace/local_llms/vinallama-7b-chat_q5_0.gguf:/app/local_model_path"
     build: .
     depends_on:
       - super__redis
@@ -14,6 +15,7 @@ services:
     volumes:
       - "./:/app"
       - "${EXTERNAL_RESOURCE_DIR:-./workspace}:/app/ext"
+      - "/d/WorkSpace/local_llms/vinallama-7b-chat_q5_0.gguf:/app/local_model_path"
     build: .
     depends_on:
       - super__redis
