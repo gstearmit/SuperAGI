@@ -22,3 +22,7 @@
 	 docker-compose -f docker-compose.yaml  up -d  # -- run Good
 
      docker-compose -f docker-compose.yaml -f docker-compose-dev.yaml up -d
+
+
+# RUN DEV
+docker-compose -f  docker-compose-dev.yaml up -d
