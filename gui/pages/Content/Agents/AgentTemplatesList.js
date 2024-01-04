@@ -89,7 +89,15 @@ export default function AgentTemplatesList({
               ))}
 
             </div> : <div className={styles.empty_templates}>
-
+              <div style={{textAlign: 'center'}}>
+                <Image width={100} height={100} src="/images/marketplace_empty.svg" alt="empty-templates"/>
+                <div style={{textAlign: 'center', color: 'white', marginTop: '15px', fontSize: '15px'}}>Browse templates
+                  from marketplace
+                </div>
+                <div style={{marginTop: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                  <button className="primary_button"  >Wait Check</button>
+                </div>
+              </div>
             </div>
             }
           </div>
