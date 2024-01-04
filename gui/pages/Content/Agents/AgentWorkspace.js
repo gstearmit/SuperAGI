@@ -411,7 +411,7 @@ export default function AgentWorkspace({env, agentId, agentName, selectedView, a
                 {agent && env === 'PROD' &&
                   <li className="dropdown_item" onClick={() => {
                     handlePublishToMarketplace()
-                  }}>Publish to marketplace</li>}
+                  }}>Publish to ChatDev v2.0</li>}
                 <div className={styles.dropdown_separator} />
                 <li className="dropdown_item" onClick={() => sendAgentData({
                   id: agentId,

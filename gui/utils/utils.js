@@ -8,27 +8,9 @@ import mixpanel from 'mixpanel-browser'
 import Cookies from "js-cookie";
 
 const toolkitData = {
-  'Jira Toolkit': '/images/jira_icon.svg',
-  'Email Toolkit': '/images/gmail_icon.svg',
-  'Google Calendar Toolkit': '/images/google_calender_icon.svg',
-  'GitHub Toolkit': '/images/github_icon.svg',
-  'Google Search Toolkit': '/images/google_search_icon.svg',
-  'Searx Toolkit': '/images/searx_icon.svg',
-  'Slack Toolkit': '/images/slack_icon.svg',
-  'Web Scraper Toolkit': '/images/webscraper_icon.svg',
-  'Web Scrapper Toolkit': '/images/webscraper_icon.svg',
-  'Twitter Toolkit': '/images/twitter_icon.svg',
-  'Google SERP Toolkit': '/images/google_serp_icon.svg',
   'File Toolkit': '/images/filemanager_icon.svg',
   'CodingToolkit': '/images/chatdevagi_logo.png',
-  'Thinking Toolkit': '/images/chatdevagi_logo.png',
-  'Image Generation Toolkit': '/images/chatdevagi_logo.png',
-  'DuckDuckGo Search Toolkit': '/images/duckduckgo_icon.png',
-  'Instagram Toolkit': '/images/instagram.png',
-  'Knowledge Search Toolkit': '/images/knowledeg_logo.png',
-  'Notion Toolkit': '/images/notion_logo.png',
-  'ApolloToolkit': '/images/apollo_logo.png',
-  'Google Analytics Toolkit': '/images/google_analytics_logo.png'
+  'Thinking Toolkit': '/images/chatdevagi_logo.png'
 };
 
 export const getUserTimezone = () => {

@@ -889,8 +889,8 @@ export default function AgentCreate({
         setPublishModal(true)
       })
       .catch((error) => {
-        toast.error("Error Publishing to marketplace")
-        console.error('Error Publishing to marketplace:', error);
+        toast.error("Error Publishing to ChatDev v2.0")
+        console.error('Error Publishing to ChatDev v2.0:', error);
       });
   }
 
@@ -1099,7 +1099,7 @@ export default function AgentCreate({
                       }}
                            onClick={openMarketplace}>
                         <Image width={15} height={15} src="/images/widgets.svg"
-                               alt="marketplace"/>&nbsp;&nbsp;Browse knowledge from marketplace
+                               alt="ChatDev v2.0"/>&nbsp;&nbsp;Browse knowledge from ChatDev v2.0
                       </div>
                     </div>
                   </div>}

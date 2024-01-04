@@ -65,10 +65,10 @@ class AgentPromptBuilder:
     @classmethod
     def replace_main_variables(cls, super_agi_prompt: str, goals: List[str], instructions: List[str], constraints: List[str],
                                tools: List[BaseTool], add_finish_tool: bool = True):
-        """Replace the main variables in the super agi prompt.
+        """Replace the main variables in the ChatDev AGI prompt.
 
         Args:
-            super_agi_prompt (str): The super agi prompt.
+            super_agi_prompt (str): The ChatDev AGI prompt.
             goals (List[str]): The list of goals.
             instructions (List[str]): The list of instructions.
             constraints (List[str]): The list of constraints.
@@ -95,10 +95,10 @@ class AgentPromptBuilder:
     @classmethod
     def replace_task_based_variables(cls, super_agi_prompt: str, current_task: str, last_task: str,
                                      last_task_result: str, pending_tasks: List[str], completed_tasks: list, token_limit: int):
-        """Replace the task based variables in the super agi prompt.
+        """Replace the task based variables in the ChatDev AGI prompt.
 
         Args:
-            super_agi_prompt (str): The super agi prompt.
+            super_agi_prompt (str): The ChatDev AGI prompt.
             current_task (str): The current task.
             last_task (str): The last task.
             last_task_result (str): The last task result.

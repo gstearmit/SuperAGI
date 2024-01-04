@@ -31,7 +31,7 @@ class SingletonMeta(type):
 
 
 class Logger(metaclass=SingletonMeta):
-    def __init__(self, logger_name='Super AGI', log_level=logging.DEBUG):
+    def __init__(self, logger_name='ChatDev AGI', log_level=logging.DEBUG):
         if not hasattr(self, 'logger'):
             self.logger = logging.getLogger(logger_name)
             self.logger.setLevel(log_level)
@@ -76,4 +76,4 @@ class Logger(metaclass=SingletonMeta):
             self.logger.critical(*args)
 
 
-logger = Logger('Super AGI')
+logger = Logger('ChatDev AGI')
