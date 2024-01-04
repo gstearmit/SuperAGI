@@ -62,7 +62,7 @@ export default function KnowledgeTemplate({template, env}) {
 
     if (window.location.href.toLowerCase().includes('marketplace')) {
       setInstalled('Sign in to install');
-      axios.get(`https://app.superagi.com/api/knowledges/marketplace/get/details/${template.name}`)
+      axios.get(`https://app.chatdevagi.com/api/knowledges/marketplace/get/details/${template.name}`)
         .then((response) => {
           const data = response.data || [];
           setTemplateData(data);
@@ -105,7 +105,7 @@ export default function KnowledgeTemplate({template, env}) {
       localStorage.setItem('knowledge_index_to_install', indexId);
 
       if (env === 'PROD') {
-        window.open(`https://app.superagi.com/`, '_self');
+        window.open(`https://app.chatdevagi.com/`, '_self');
       } else {
         window.location.href = '/';
       }
@@ -163,7 +163,7 @@ export default function KnowledgeTemplate({template, env}) {
     setIndexDropdown(!indexDropdown)
     if (window.location.href.toLowerCase().includes('marketplace')) {
       if (env === 'PROD') {
-        window.open(`https://app.superagi.com/`, '_self');
+        window.open(`https://app.chatdevagi.com/`, '_self');
       } else {
         window.location.href = '/';
       }

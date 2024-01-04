@@ -1,5 +1,5 @@
 import pytest
-from superagi.tools.duck_duck_go.duck_duck_go_search import DuckDuckGoSearchTool
+from chatdevagi.tools.duck_duck_go.duck_duck_go_search import DuckDuckGoSearchTool
 
 class TestDuckDuckGoSearchTool:
     def setup_method(self):

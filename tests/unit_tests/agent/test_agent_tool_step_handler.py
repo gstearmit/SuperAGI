@@ -3,21 +3,21 @@ from unittest.mock import Mock, create_autospec, patch
 
 import pytest
 
-from superagi.agent.agent_tool_step_handler import AgentToolStepHandler
-from superagi.agent.common_types import ToolExecutorResponse
-from superagi.agent.output_handler import ToolOutputHandler
-from superagi.agent.tool_builder import ToolBuilder
-from superagi.helper.token_counter import TokenCounter
-from superagi.models.agent import Agent
-from superagi.models.agent_config import AgentConfiguration
-from superagi.models.agent_execution import AgentExecution
-from superagi.models.agent_execution_config import AgentExecutionConfiguration
-from superagi.models.agent_execution_permission import AgentExecutionPermission
-from superagi.models.tool import Tool
-from superagi.models.workflows.agent_workflow_step import AgentWorkflowStep
-from superagi.models.workflows.agent_workflow_step_tool import AgentWorkflowStepTool
-from superagi.resource_manager.resource_summary import ResourceSummarizer
-from superagi.tools.code.write_code import CodingTool
+from chatdevagi.agent.agent_tool_step_handler import AgentToolStepHandler
+from chatdevagi.agent.common_types import ToolExecutorResponse
+from chatdevagi.agent.output_handler import ToolOutputHandler
+from chatdevagi.agent.tool_builder import ToolBuilder
+from chatdevagi.helper.token_counter import TokenCounter
+from chatdevagi.models.agent import Agent
+from chatdevagi.models.agent_config import AgentConfiguration
+from chatdevagi.models.agent_execution import AgentExecution
+from chatdevagi.models.agent_execution_config import AgentExecutionConfiguration
+from chatdevagi.models.agent_execution_permission import AgentExecutionPermission
+from chatdevagi.models.tool import Tool
+from chatdevagi.models.workflows.agent_workflow_step import AgentWorkflowStep
+from chatdevagi.models.workflows.agent_workflow_step_tool import AgentWorkflowStepTool
+from chatdevagi.resource_manager.resource_summary import ResourceSummarizer
+from chatdevagi.tools.code.write_code import CodingTool
 
 
 # Given
@@ -42,7 +42,7 @@ def test_create_permission_request(handler):
     handler.session.flush = Mock()
 
     mock_permission = create_autospec(AgentExecutionPermission)
-    with patch('superagi.agent.agent_tool_step_handler.AgentExecutionPermission', return_value=mock_permission) as mock_cls:
+    with patch('chatdevagi.agent.agent_tool_step_handler.AgentExecutionPermission', return_value=mock_permission) as mock_cls:
         # Act
         handler._create_permission_request(execution, step_tool)
 
@@ -88,7 +88,7 @@ def test_execute_step(handler):
         tool_output_handler = Mock(spec=ToolOutputHandler)
         tool_output_handler.handle.return_value = ToolExecutorResponse(status="SUCCESS", output="final_response")
 
-        with patch('superagi.agent.agent_tool_step_handler.ToolOutputHandler', return_value=tool_output_handler):
+        with patch('chatdevagi.agent.agent_tool_step_handler.ToolOutputHandler', return_value=tool_output_handler):
             # Act
             handler.execute_step()
 
@@ -187,8 +187,8 @@ def test_build_tool_input_prompt(handler):
     agent_execution_config = {"goal": ["Goal1", "Goal2"]}
     mock_prompt = "{goals}{tool_name}{instruction}{tool_schema}"
 
-    with patch('superagi.agent.agent_tool_step_handler.PromptReader.read_agent_prompt', return_value=mock_prompt), \
-            patch('superagi.agent.agent_tool_step_handler.AgentPromptBuilder.add_list_items_to_string', return_value="Goal1, Goal2"):
+    with patch('chatdevagi.agent.agent_tool_step_handler.PromptReader.read_agent_prompt', return_value=mock_prompt), \
+            patch('chatdevagi.agent.agent_tool_step_handler.AgentPromptBuilder.add_list_items_to_string', return_value="Goal1, Goal2"):
         # Act
         result = handler._build_tool_input_prompt(step_tool, tool, agent_execution_config)
 
@@ -213,7 +213,7 @@ def test_build_tool_output_prompt(handler):
     mock_prompt = "{tool_output}{tool_name}{instruction}{output_options}"
     step_responses = ["option1", "option2", "default"]
 
-    with patch('superagi.agent.agent_tool_step_handler.PromptReader.read_agent_prompt', return_value=mock_prompt), \
+    with patch('chatdevagi.agent.agent_tool_step_handler.PromptReader.read_agent_prompt', return_value=mock_prompt), \
             patch.object(handler, '_get_step_responses', return_value=step_responses):
         # Act
         result = handler._build_tool_output_prompt(step_tool, tool_output, workflow_step)

@@ -2,29 +2,29 @@ from unittest.mock import Mock, patch, MagicMock
 
 import pytest
 
-from superagi.agent.agent_iteration_step_handler import AgentIterationStepHandler
-from superagi.agent.agent_message_builder import AgentLlmMessageBuilder
-from superagi.agent.agent_prompt_builder import AgentPromptBuilder
-from superagi.agent.output_handler import ToolOutputHandler
-from superagi.agent.task_queue import TaskQueue
-from superagi.agent.tool_builder import ToolBuilder
-from superagi.config.config import get_config
-from superagi.helper.token_counter import TokenCounter
-from superagi.models.agent import Agent
-from superagi.models.agent_config import AgentConfiguration
-from superagi.models.agent_execution import AgentExecution
-from superagi.models.agent_execution_config import AgentExecutionConfiguration
-from superagi.models.agent_execution_feed import AgentExecutionFeed
-from superagi.models.agent_execution_permission import AgentExecutionPermission
-from superagi.models.organisation import Organisation
-from superagi.models.tool import Tool
-from superagi.models.workflows.agent_workflow_step import AgentWorkflowStep
-from superagi.models.workflows.iteration_workflow import IterationWorkflow
-from superagi.models.workflows.iteration_workflow_step import IterationWorkflowStep
-from superagi.resource_manager.resource_summary import ResourceSummarizer
-from superagi.tools.code.write_code import CodingTool
-from superagi.tools.resource.query_resource import QueryResourceTool
-from superagi.tools.thinking.tools import ThinkingTool
+from chatdevagi.agent.agent_iteration_step_handler import AgentIterationStepHandler
+from chatdevagi.agent.agent_message_builder import AgentLlmMessageBuilder
+from chatdevagi.agent.agent_prompt_builder import AgentPromptBuilder
+from chatdevagi.agent.output_handler import ToolOutputHandler
+from chatdevagi.agent.task_queue import TaskQueue
+from chatdevagi.agent.tool_builder import ToolBuilder
+from chatdevagi.config.config import get_config
+from chatdevagi.helper.token_counter import TokenCounter
+from chatdevagi.models.agent import Agent
+from chatdevagi.models.agent_config import AgentConfiguration
+from chatdevagi.models.agent_execution import AgentExecution
+from chatdevagi.models.agent_execution_config import AgentExecutionConfiguration
+from chatdevagi.models.agent_execution_feed import AgentExecutionFeed
+from chatdevagi.models.agent_execution_permission import AgentExecutionPermission
+from chatdevagi.models.organisation import Organisation
+from chatdevagi.models.tool import Tool
+from chatdevagi.models.workflows.agent_workflow_step import AgentWorkflowStep
+from chatdevagi.models.workflows.iteration_workflow import IterationWorkflow
+from chatdevagi.models.workflows.iteration_workflow_step import IterationWorkflowStep
+from chatdevagi.resource_manager.resource_summary import ResourceSummarizer
+from chatdevagi.tools.code.write_code import CodingTool
+from chatdevagi.tools.resource.query_resource import QueryResourceTool
+from chatdevagi.tools.thinking.tools import ThinkingTool
 
 
 # Given
@@ -55,7 +55,7 @@ def test_build_agent_prompt(test_handler, mocker):
     mocker.patch.object(task_queue, 'get_tasks', return_value=[])
     mocker.patch.object(task_queue, 'get_completed_tasks', return_value=[])
     mocker.patch.object(TokenCounter, 'token_limit', return_value=1000)
-    mocker.patch('superagi.agent.agent_iteration_step_handler.get_config', return_value=600)
+    mocker.patch('chatdevagi.agent.agent_iteration_step_handler.get_config', return_value=600)
 
     # Act
     test_handler.task_queue = task_queue
@@ -83,7 +83,7 @@ def test_build_tools(test_handler, mocker):
     mocker.patch.object(ToolBuilder, 'build_tool')
     mocker.patch.object(ToolBuilder, 'set_default_params_tool', return_value=ThinkingTool())
     mocker.patch.object(ResourceSummarizer, 'fetch_or_create_agent_resource_summary', return_value=True)
-    mocker.patch('superagi.models.tool.Tool')
+    mocker.patch('chatdevagi.models.tool.Tool')
     test_handler.session.query.return_value.filter.return_value.all.return_value = [ThinkingTool()]
 
     # Act

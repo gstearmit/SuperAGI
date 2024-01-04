@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import Mock, patch
-from superagi.models.vector_dbs import Vectordbs
+from chatdevagi.models.vector_dbs import Vectordbs
 
 class TestVectordbs(unittest.TestCase):
     def setUp(self):

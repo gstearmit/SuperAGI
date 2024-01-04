@@ -3,9 +3,9 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from superagi.models.agent_execution import AgentExecution
-from superagi.models.workflows.agent_workflow_step import AgentWorkflowStep
-from superagi.agent.agent_workflow_step_wait_handler import AgentWaitStepHandler
+from chatdevagi.models.agent_execution import AgentExecution
+from chatdevagi.models.workflows.agent_workflow_step import AgentWorkflowStep
+from chatdevagi.agent.agent_workflow_step_wait_handler import AgentWaitStepHandler
 
 
 # Mock datetime.now() for testing
@@ -16,7 +16,7 @@ def mock_datetime_now():
 
 @pytest.fixture(autouse=True)
 def mock_datetime_now_fixture(monkeypatch, mock_datetime_now):
-    monkeypatch.setattr("superagi.agent.agent_workflow_step_wait_handler.datetime",
+    monkeypatch.setattr("chatdevagi.agent.agent_workflow_step_wait_handler.datetime",
                         MagicMock(now=MagicMock(return_value=mock_datetime_now)))
 
 # Test cases

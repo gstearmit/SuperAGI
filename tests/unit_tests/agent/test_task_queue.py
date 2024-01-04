@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from superagi.agent.task_queue import TaskQueue
+from chatdevagi.agent.task_queue import TaskQueue
 
 
 class TaskQueueTests(unittest.TestCase):

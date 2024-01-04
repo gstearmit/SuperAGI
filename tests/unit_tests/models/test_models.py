@@ -2,7 +2,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from superagi.models.models import Models
+from chatdevagi.models.models import Models
 
 @pytest.fixture
 def mock_session():
@@ -72,7 +72,7 @@ def test_fetch_marketplace_list(mock_get):
     # Verify the result
     assert result == ['model1', 'model2']
 
-# @patch('superagi.models.models_config.ModelsConfig')
+# @patch('chatdevagi.models.models_config.ModelsConfig')
 # @patch('logging.error')
 # def test_get_model_install_details(mock_logging_error, mock_models_config, mock_session):
 #     mock_model = MagicMock()
@@ -148,7 +148,7 @@ def test_store_model_details_when_model_not_exists(mock_session, monkeypatch):
     mock_fetch_model_by_id = MagicMock()
 
     # Patching the fetch_model_by_id method in the class
-    monkeypatch.setattr('superagi.models.models_config.ModelsConfig.fetch_model_by_id', mock_fetch_model_by_id)
+    monkeypatch.setattr('chatdevagi.models.models_config.ModelsConfig.fetch_model_by_id', mock_fetch_model_by_id)
     mock_fetch_model_by_id.return_value = {"provider": "some_provider"}
 
     # Act
@@ -175,7 +175,7 @@ def test_store_model_details_when_unexpected_error_occurs(mock_session, monkeypa
     mock_session.query.return_value.filter.return_value.first.return_value = None
     mock_session.add = MagicMock(side_effect=Exception("Unknown error"))
     mock_fetch_model_by_id = MagicMock()
-    monkeypatch.setattr('superagi.models.models_config.ModelsConfig.fetch_model_by_id', mock_fetch_model_by_id)
+    monkeypatch.setattr('chatdevagi.models.models_config.ModelsConfig.fetch_model_by_id', mock_fetch_model_by_id)
     mock_fetch_model_by_id.return_value = {"provider": "some_provider"}
 
     # Act
@@ -195,7 +195,7 @@ def test_store_model_details_when_unexpected_error_occurs(mock_session, monkeypa
     # Assert
     assert response == {"error": "Unexpected Error Occured"}
 
-@patch('superagi.models.models_config.ModelsConfig')
+@patch('chatdevagi.models.models_config.ModelsConfig')
 def test_fetch_models(mock_models_config, mock_session):
     # Specify the return value of the query
     mock_session.query.return_value.join.return_value.filter.return_value.all.return_value = [
@@ -213,7 +213,7 @@ def test_fetch_models(mock_models_config, mock_session):
         "model_provider": "example_provider"
     }]
 
-@patch('superagi.models.models_config.ModelsConfig')
+@patch('chatdevagi.models.models_config.ModelsConfig')
 def test_fetch_model_details(mock_models_config, mock_session):
     # Specify the return values for the query
     mock_session.query.return_value.join.return_value.filter.return_value.first.return_value = (

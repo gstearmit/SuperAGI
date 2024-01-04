@@ -2,11 +2,11 @@ import os
 import pytest
 import tempfile
 from unittest.mock import MagicMock, patch
-from superagi.tools.file.read_file import ReadFileTool  
+from chatdevagi.tools.file.read_file import ReadFileTool
 
-from superagi.models.agent_execution import AgentExecution
-from superagi.tools.file.read_file import ReadFileTool
-from superagi.models.agent import Agent
+from chatdevagi.models.agent_execution import AgentExecution
+from chatdevagi.tools.file.read_file import ReadFileTool
+from chatdevagi.models.agent import Agent
 
 @pytest.fixture
 def mock_os_path_exists():
@@ -20,7 +20,7 @@ def mock_os_makedirs():
 
 @pytest.fixture
 def mock_get_config():
-    with patch("superagi.config.config.get_config") as mock_get_config:
+    with patch("chatdevagi.config.config.get_config") as mock_get_config:
         yield mock_get_config
 
 
@@ -31,7 +31,7 @@ def read_file_tool():
 
 @pytest.fixture
 def mock_s3_helper():
-    with patch("superagi.helper.s3_helper.S3Helper") as mock_s3_helper:
+    with patch("chatdevagi.helper.s3_helper.S3Helper") as mock_s3_helper:
         yield mock_s3_helper
 
 @pytest.fixture
@@ -41,16 +41,16 @@ def mock_partition():
 
 @pytest.fixture
 def mock_get_agent_from_id():
-    with patch("superagi.models.agent.Agent.get_agent_from_id") as mock_get_agent:
+    with patch("chatdevagi.models.agent.Agent.get_agent_from_id") as mock_get_agent:
         yield mock_get_agent
 
 @pytest.fixture
 def mock_get_agent_execution_from_id():
-    with patch("superagi.models.agent_execution.AgentExecution.get_agent_execution_from_id") as mock_execution:
+    with patch("chatdevagi.models.agent_execution.AgentExecution.get_agent_execution_from_id") as mock_execution:
         yield mock_execution
 @pytest.fixture
 def mock_resource_helper():
-    with patch("superagi.helper.resource_helper.ResourceHelper.get_agent_read_resource_path") as mock_resource_helper:
+    with patch("chatdevagi.helper.resource_helper.ResourceHelper.get_agent_read_resource_path") as mock_resource_helper:
         yield mock_resource_helper
 
 def test_read_file_tool(mock_os_path_exists, mock_os_makedirs, mock_get_config, mock_s3_helper, mock_partition,

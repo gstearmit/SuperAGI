@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import Mock, patch
 
-from superagi.agent.tool_builder import ToolBuilder
-from superagi.models.tool import Tool
+from chatdevagi.agent.tool_builder import ToolBuilder
+from chatdevagi.models.tool import Tool
 
 
 @pytest.fixture
@@ -33,8 +33,8 @@ def agent_config():
 def agent_execution_config():
     return {"goal": "Test Goal", "instruction": "Test Instruction"}
 
-@patch('superagi.agent.tool_builder.importlib.import_module')
-@patch('superagi.agent.tool_builder.getattr')
+@patch('chatdevagi.agent.tool_builder.importlib.import_module')
+@patch('chatdevagi.agent.tool_builder.getattr')
 def test_build_tool(mock_getattr, mock_import_module, tool_builder, tool):
     mock_module = Mock()
     mock_class = Mock()

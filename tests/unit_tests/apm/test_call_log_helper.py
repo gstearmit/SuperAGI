@@ -1,12 +1,12 @@
 import pytest
 from sqlalchemy.exc import SQLAlchemyError
-from superagi.models.call_logs import CallLogs
-from superagi.models.agent import Agent
-from superagi.models.tool import Tool
-from superagi.models.toolkit import Toolkit
+from chatdevagi.models.call_logs import CallLogs
+from chatdevagi.models.agent import Agent
+from chatdevagi.models.tool import Tool
+from chatdevagi.models.toolkit import Toolkit
 from unittest.mock import MagicMock
 
-from superagi.apm.call_log_helper import CallLogHelper
+from chatdevagi.apm.call_log_helper import CallLogHelper
 
 @pytest.fixture
 def mock_session():

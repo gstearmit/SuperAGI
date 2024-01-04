@@ -4,11 +4,11 @@ import pytest
 from fastapi.testclient import TestClient
 
 from main import app
-from superagi.models.organisation import Organisation
-from superagi.models.tool import Tool
-from superagi.models.tool_config import ToolConfig
-from superagi.types.key_type import ToolConfigKeyType
-from superagi.models.toolkit import Toolkit
+from chatdevagi.models.organisation import Organisation
+from chatdevagi.models.tool import Tool
+from chatdevagi.models.tool_config import ToolConfig
+from chatdevagi.types.key_type import ToolConfigKeyType
+from chatdevagi.models.toolkit import Toolkit
 
 client = TestClient(app)
 
@@ -110,10 +110,10 @@ def test_handle_marketplace_operations_list(mocks):
     user_organisation, user_toolkits, tools, toolkit_1, toolkit_2, tool_1, tool_2, tool_3 = mocks
 
     # Mock the database session and query functions
-    with patch('superagi.helper.auth.get_user_organisation') as mock_get_user_org, \
-            patch('superagi.controllers.toolkit.db') as mock_db, \
-            patch('superagi.models.toolkit.Toolkit.fetch_marketplace_list') as mock_fetch_marketplace_list, \
-            patch('superagi.helper.auth.db') as mock_auth_db:
+    with patch('chatdevagi.helper.auth.get_user_organisation') as mock_get_user_org, \
+            patch('chatdevagi.controllers.toolkit.db') as mock_db, \
+            patch('chatdevagi.models.toolkit.Toolkit.fetch_marketplace_list') as mock_fetch_marketplace_list, \
+            patch('chatdevagi.helper.auth.db') as mock_auth_db:
         # Set up mock data
         mock_db.session.query.return_value.filter.return_value.all.side_effect = [user_toolkits]
         mock_fetch_marketplace_list.return_value = [toolkit_1.to_dict(), toolkit_2.to_dict()]
@@ -145,13 +145,13 @@ def test_handle_marketplace_operations_list(mocks):
 
 def test_install_toolkit_from_marketplace(mock_toolkit_details):
     # Mock the database session and query functions
-    with patch('superagi.helper.auth.get_user_organisation') as mock_get_user_org, \
-            patch('superagi.models.toolkit.Toolkit.fetch_marketplace_detail') as mock_fetch_marketplace_detail, \
-            patch('superagi.models.toolkit.Toolkit.add_or_update') as mock_add_or_update, \
-            patch('superagi.models.tool.Tool.add_or_update') as mock_tool_add_or_update, \
-            patch('superagi.controllers.toolkit.db') as mock_db, \
-            patch('superagi.helper.auth.db') as mock_auth_db, \
-            patch('superagi.models.tool_config.ToolConfig.add_or_update') as mock_tool_config_add_or_update:
+    with patch('chatdevagi.helper.auth.get_user_organisation') as mock_get_user_org, \
+            patch('chatdevagi.models.toolkit.Toolkit.fetch_marketplace_detail') as mock_fetch_marketplace_detail, \
+            patch('chatdevagi.models.toolkit.Toolkit.add_or_update') as mock_add_or_update, \
+            patch('chatdevagi.models.tool.Tool.add_or_update') as mock_tool_add_or_update, \
+            patch('chatdevagi.controllers.toolkit.db') as mock_db, \
+            patch('chatdevagi.helper.auth.db') as mock_auth_db, \
+            patch('chatdevagi.models.tool_config.ToolConfig.add_or_update') as mock_tool_config_add_or_update:
         # Set up mock data and behavior
         mock_get_user_org.return_value = Organisation(id=1)
         mock_fetch_marketplace_detail.return_value = mock_toolkit_details

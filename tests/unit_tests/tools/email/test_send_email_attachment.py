@@ -1,20 +1,20 @@
 # import unittest
 # from unittest.mock import patch, MagicMock, ANY
-# from superagi.models.agent import Agent
+# from chatdevagi.models.agent import Agent
 # import os
-# from superagi.tools.email.send_email_attachment import SendEmailAttachmentTool, SendEmailAttachmentInput
+# from chatdevagi.tools.email.send_email_attachment import SendEmailAttachmentTool, SendEmailAttachmentInput
 # import tempfile
 
 # class TestSendEmailAttachmentTool(unittest.TestCase):
 #     # Create a new class-level test file
 #     testFile = tempfile.NamedTemporaryFile(delete=True)
 
-#     @patch("superagi.models.agent.Agent.get_agent_from_id")
-#     @patch("superagi.tools.email.send_email_attachment.SendEmailAttachmentTool.send_email_with_attachment")
-#     @patch("superagi.helper.resource_helper.ResourceHelper.get_agent_read_resource_path")
-#     @patch("superagi.helper.resource_helper.ResourceHelper.get_root_input_dir")
+#     @patch("chatdevagi.models.agent.Agent.get_agent_from_id")
+#     @patch("chatdevagi.tools.email.send_email_attachment.SendEmailAttachmentTool.send_email_with_attachment")
+#     @patch("chatdevagi.helper.resource_helper.ResourceHelper.get_agent_read_resource_path")
+#     @patch("chatdevagi.helper.resource_helper.ResourceHelper.get_root_input_dir")
 #     @patch("os.path.exists", return_value=os.path.exists(testFile.name))
-#     @patch("superagi.helper.s3_helper.S3Helper.read_binary_from_s3")
+#     @patch("chatdevagi.helper.s3_helper.S3Helper.read_binary_from_s3")
 #     def test__execute(self, mock_s3_file_read, mock_exists, mock_get_root_input_dir, mock_get_agent_resource_path,
 #                       mock_send_email_with_attachment, mock_get_agent_from_id):
 

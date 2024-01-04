@@ -2,7 +2,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from superagi.models.models_config import ModelsConfig
+from chatdevagi.models.models_config import ModelsConfig
 
 @pytest.fixture
 def mock_session():
@@ -37,8 +37,8 @@ def test_repr_method_models_config(mock_session):
     assert model_config_repr == f"ModelsConfig(id=None, provider={provider}, " \
                                 f"org_id={org_id})"
 
-# @patch('superagi.helper.encyption_helper.decrypt_data', return_value='decrypted_api_key')
-# @patch('superagi.helper.encyption_helper.encrypt_data', return_value='encrypted_api_key')
+# @patch('chatdevagi.helper.encyption_helper.decrypt_data', return_value='decrypted_api_key')
+# @patch('chatdevagi.helper.encyption_helper.encrypt_data', return_value='encrypted_api_key')
 # def test_store_api_key(mock_encrypt_data, mock_decrypt_data, mock_session):
 #     # Arrange
 #     organisation_id = 1
@@ -69,7 +69,7 @@ def test_repr_method_models_config(mock_session):
 #     mock_session.commit.assert_called()
 #     assert response == {'message': 'The API key was successfully stored'}
 
-# @patch('superagi.helper.encyption_helper.decrypt_data', return_value='decrypted_api_key')
+# @patch('chatdevagi.helper.encyption_helper.decrypt_data', return_value='decrypted_api_key')
 # def test_fetch_api_keys(mock_decrypt_data, mock_session):
 #     # Arrange
 #     organisation_id = 1
@@ -82,7 +82,7 @@ def test_repr_method_models_config(mock_session):
 #     # Assert
 #     assert api_keys == [{"provider": "example_provider", "api_key": "decrypted_api_key"}]
 #
-# @patch('superagi.helper.encyption_helper.decrypt_data', return_value='decrypted_api_key')
+# @patch('chatdevagi.helper.encyption_helper.decrypt_data', return_value='decrypted_api_key')
 # def test_fetch_api_key(mock_session):
 #     # Arrange
 #     organisation_id = 1

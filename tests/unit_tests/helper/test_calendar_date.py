@@ -3,7 +3,7 @@ from unittest.mock import MagicMock
 from datetime import datetime, timezone
 import pytz
 
-from superagi.helper.calendar_date import CalendarDate
+from chatdevagi.helper.calendar_date import CalendarDate
 
 
 class TestCalendarDate(unittest.TestCase):

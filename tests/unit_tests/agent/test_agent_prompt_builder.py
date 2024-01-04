@@ -1,8 +1,8 @@
 from unittest.mock import Mock
 from unittest.mock import patch
 
-from superagi.agent.agent_prompt_builder import AgentPromptBuilder
-from superagi.tools.base_tool import BaseTool
+from chatdevagi.agent.agent_prompt_builder import AgentPromptBuilder
+from chatdevagi.tools.base_tool import BaseTool
 
 
 def test_add_list_items_to_string():
@@ -17,8 +17,8 @@ def test_clean_prompt():
     assert result == 'some text with extra spaces'
 
 
-@patch('superagi.agent.agent_prompt_builder.AgentPromptBuilder.add_list_items_to_string')
-@patch('superagi.agent.agent_prompt_builder.AgentPromptBuilder.add_tools_to_prompt')
+@patch('chatdevagi.agent.agent_prompt_builder.AgentPromptBuilder.add_list_items_to_string')
+@patch('chatdevagi.agent.agent_prompt_builder.AgentPromptBuilder.add_tools_to_prompt')
 def test_replace_main_variables(mock_add_tools_to_prompt, mock_add_list_items_to_string):
     super_agi_prompt = "{goals} {instructions} {task_instructions} {constraints} {tools}"
     goals = ['goal1', 'goal2']
@@ -37,7 +37,7 @@ def test_replace_main_variables(mock_add_tools_to_prompt, mock_add_list_items_to
     assert 'constraint1' in result
 
 
-@patch('superagi.agent.agent_prompt_builder.TokenCounter.count_message_tokens')
+@patch('chatdevagi.agent.agent_prompt_builder.TokenCounter.count_message_tokens')
 def test_replace_task_based_variables(mock_count_message_tokens):
     super_agi_prompt = "{current_task} {last_task} {last_task_result} {pending_tasks} {completed_tasks} {task_history}"
     current_task = "task1"
@@ -58,7 +58,7 @@ def test_replace_task_based_variables(mock_count_message_tokens):
     assert result == expected_result
 
 
-@patch('superagi.agent.agent_prompt_builder.TokenCounter.count_message_tokens')
+@patch('chatdevagi.agent.agent_prompt_builder.TokenCounter.count_message_tokens')
 def test_replace_task_based_variables(mock_count_message_tokens):
     super_agi_prompt = "{current_task} {last_task} {last_task_result} {pending_tasks} {completed_tasks} {task_history}"
     current_task = "task1"

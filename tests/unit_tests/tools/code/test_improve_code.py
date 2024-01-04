@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import Mock, MagicMock
-from superagi.tools.code.improve_code import ImproveCodeTool
+from chatdevagi.tools.code.improve_code import ImproveCodeTool
 
 @pytest.fixture
 def mock_improve_code_tool():

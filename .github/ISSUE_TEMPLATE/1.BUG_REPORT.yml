@@ -1,5 +1,5 @@
 name: Bug report 
-description: Create a bug report for SuperAGI.
+description: Create a bug report for chatdevagi.
 labels: ['status: needs triage']
 body:
   - type: markdown
@@ -32,8 +32,8 @@ body:
         Think like this: What would you type if you were searching for the issue?
         
         For example:
-        ❌ - my SuperAGI agent keeps looping
-        ✅ - After performing Write Tool, SuperAGI goes into a loop where it keeps trying to write the file.
+        ❌ - my chatdevagi agent keeps looping
+        ✅ - After performing Write Tool, chatdevagi goes into a loop where it keeps trying to write the file.
         
         Please help us help you by following these steps:
         - Search for existing issues, adding a comment when you have the same or similar issue is tidier than "new issue" and 
@@ -44,9 +44,9 @@ body:
           - If it's a pip/packages issue, mention this in the title and provide pip version, python version.
   - type: dropdown
     attributes:
-      label: Where are you using SuperAGI?
+      label: Where are you using chatdevagi?
       description: >
-        Please select the operating system you were using to run SuperAGI when this problem occurred.
+        Please select the operating system you were using to run chatdevagi when this problem occurred.
       options:
         - Windows
         - Linux
@@ -64,9 +64,9 @@ body:
 
   - type: dropdown
     attributes:
-      label: Which branch of SuperAGI are you using?
+      label: Which branch of chatdevagi are you using?
       description: |
-        Please select which version of SuperAGI you were using when this issue occurred.
+        Please select which version of chatdevagi you were using when this issue occurred.
         If installed with git you can run `git branch` to see which version of Auto-GPT you are running.
       options:
         - Main
@@ -78,7 +78,7 @@ body:
     attributes:
       label: Do you use OpenAI GPT-3.5 or GPT-4?
       description: >
-        If you are using SuperAGI with GPT-3.5, your problems may be caused by
+        If you are using chatdevagi with GPT-3.5, your problems may be caused by
         the limitations of GPT-3.5 like incorrect Tool selection thus causing looping in the agent feed.
       options:
         - GPT-3.5
@@ -142,7 +142,7 @@ body:
         Upload the error log content, this can help us understand the issue better. 
         To do this, you can simply copy the logs from the terminal with which you did 'docker compose up' or in a new terminal, 
         enter 'docker compose logs' and copy/paste the error contents to this field. 
-        ⚠️ The activity log may contain personal data given to SuperAGI by you in prompt or input as well as 
-        any personal information that SuperAGI collected out of files during last run. Please hide them before sharing. ⚠️
+        ⚠️ The activity log may contain personal data given to chatdevagi by you in prompt or input as well as 
+        any personal information that chatdevagi collected out of files during last run. Please hide them before sharing. ⚠️
     validations:
       required: True

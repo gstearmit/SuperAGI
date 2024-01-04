@@ -1,16 +1,16 @@
 import pytest
 from unittest.mock import Mock, patch, MagicMock
 
-from superagi.agent.common_types import ToolExecutorResponse
-from superagi.agent.output_handler import ToolOutputHandler, TaskOutputHandler, ReplaceTaskOutputHandler
-from superagi.agent.output_parser import AgentSchemaOutputParser, AgentGPTAction
-from superagi.agent.task_queue import TaskQueue
-from superagi.agent.tool_executor import ToolExecutor
-from superagi.helper.json_cleaner import JsonCleaner
-from superagi.models.agent import Agent
-from superagi.models.agent_execution_permission import AgentExecutionPermission
+from chatdevagi.agent.common_types import ToolExecutorResponse
+from chatdevagi.agent.output_handler import ToolOutputHandler, TaskOutputHandler, ReplaceTaskOutputHandler
+from chatdevagi.agent.output_parser import AgentSchemaOutputParser, AgentGPTAction
+from chatdevagi.agent.task_queue import TaskQueue
+from chatdevagi.agent.tool_executor import ToolExecutor
+from chatdevagi.helper.json_cleaner import JsonCleaner
+from chatdevagi.models.agent import Agent
+from chatdevagi.models.agent_execution_permission import AgentExecutionPermission
 import numpy as np
-from superagi.agent.output_handler import ToolOutputHandler
+from chatdevagi.agent.output_handler import ToolOutputHandler
 
 
 # Test for ToolOutputHandler
@@ -45,7 +45,7 @@ def test_tool_output_handle(parse_mock, execute_mock, get_completed_tasks_mock, 
 
 
 
-@patch('superagi.agent.output_handler.TokenTextSplitter')
+@patch('chatdevagi.agent.output_handler.TokenTextSplitter')
 def test_add_text_to_memory(TokenTextSplitter_mock):
     # Arrange
     agent_execution_id = 1
@@ -72,7 +72,7 @@ def test_add_text_to_memory(TokenTextSplitter_mock):
     memory_mock.add_texts.assert_called_once_with(["This is a task.", "Task completed."], [{"agent_execution_id": agent_execution_id}, {"agent_execution_id": agent_execution_id}])  
 
 
-@patch('superagi.models.agent_execution_permission.AgentExecutionPermission')
+@patch('chatdevagi.models.agent_execution_permission.AgentExecutionPermission')
 def test_tool_handler_check_permission_in_restricted_mode(op_mock):
     # Mock the session
     session_mock = MagicMock()

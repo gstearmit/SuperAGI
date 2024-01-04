@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Downloads the tools from marketplace and external tool repositories
-python superagi/tool_manager.py
+python chatdevagi/tool_manager.py
 
 # Install dependencies
 ./install_tool_dependencies.sh

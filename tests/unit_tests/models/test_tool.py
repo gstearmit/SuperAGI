@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import MagicMock, call
 from sqlalchemy.orm.exc import NoResultFound
-from superagi.models.tool import Tool
-from superagi.controllers.types.agent_with_config import AgentConfigInput
+from chatdevagi.models.tool import Tool
+from chatdevagi.controllers.types.agent_with_config import AgentConfigInput
 from fastapi import HTTPException
 from typing import List
 

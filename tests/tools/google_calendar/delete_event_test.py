@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import Mock, patch
 from pydantic import ValidationError
-from superagi.tools.google_calendar.delete_calendar_event import DeleteCalendarEventInput, DeleteCalendarEventTool
+from chatdevagi.tools.google_calendar.delete_calendar_event import DeleteCalendarEventInput, DeleteCalendarEventTool
 
 class TestDeleteCalendarEventInput(unittest.TestCase):
     def test_valid_input(self):

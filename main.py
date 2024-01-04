@@ -10,54 +10,54 @@ from pydantic import BaseModel
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-import superagi
+import chatdevagi
 from datetime import timedelta, datetime
-from superagi.agent.workflow_seed import IterationWorkflowSeed, AgentWorkflowSeed
-from superagi.config.config import get_config
-from superagi.controllers.agent import router as agent_router
-from superagi.controllers.agent_execution import router as agent_execution_router
-from superagi.controllers.agent_execution_feed import router as agent_execution_feed_router
-from superagi.controllers.agent_execution_permission import router as agent_execution_permission_router
-from superagi.controllers.agent_template import router as agent_template_router
-from superagi.controllers.agent_workflow import router as agent_workflow_router
-from superagi.controllers.budget import router as budget_router
-from superagi.controllers.config import router as config_router
-from superagi.controllers.organisation import router as organisation_router
-from superagi.controllers.project import router as project_router
-from superagi.controllers.twitter_oauth import router as twitter_oauth_router
-from superagi.controllers.google_oauth import router as google_oauth_router
-from superagi.controllers.resources import router as resources_router
-from superagi.controllers.tool import router as tool_router
-from superagi.controllers.tool_config import router as tool_config_router
-from superagi.controllers.toolkit import router as toolkit_router
-from superagi.controllers.user import router as user_router
-from superagi.controllers.agent_execution_config import router as agent_execution_config
-from superagi.controllers.analytics import router as analytics_router
-from superagi.controllers.models_controller import router as models_controller_router
-from superagi.controllers.knowledges import router as knowledges_router
-from superagi.controllers.knowledge_configs import router as knowledge_configs_router
-from superagi.controllers.vector_dbs import router as vector_dbs_router
-from superagi.controllers.vector_db_indices import router as vector_db_indices_router
-from superagi.controllers.marketplace_stats import router as marketplace_stats_router
-from superagi.controllers.api_key import router as api_key_router
-from superagi.controllers.api.agent import router as api_agent_router
-from superagi.controllers.webhook import router as web_hook_router
-from superagi.helper.tool_helper import register_toolkits, register_marketplace_toolkits
-from superagi.lib.logger import logger
-from superagi.llms.google_palm import GooglePalm
-from superagi.llms.llm_model_factory import build_model_with_api_key
-from superagi.llms.openai import OpenAi
-from superagi.llms.replicate import Replicate
-from superagi.llms.hugging_face import HuggingFace
-from superagi.models.agent_template import AgentTemplate
-from superagi.models.models_config import ModelsConfig
-from superagi.models.organisation import Organisation
-from superagi.models.types.login_request import LoginRequest
-from superagi.models.types.validate_llm_api_key_request import ValidateAPIKeyRequest
-from superagi.models.user import User
-from superagi.models.workflows.agent_workflow import AgentWorkflow
-from superagi.models.workflows.iteration_workflow import IterationWorkflow
-from superagi.models.workflows.iteration_workflow_step import IterationWorkflowStep
+from chatdevagi.agent.workflow_seed import IterationWorkflowSeed, AgentWorkflowSeed
+from chatdevagi.config.config import get_config
+from chatdevagi.controllers.agent import router as agent_router
+from chatdevagi.controllers.agent_execution import router as agent_execution_router
+from chatdevagi.controllers.agent_execution_feed import router as agent_execution_feed_router
+from chatdevagi.controllers.agent_execution_permission import router as agent_execution_permission_router
+from chatdevagi.controllers.agent_template import router as agent_template_router
+from chatdevagi.controllers.agent_workflow import router as agent_workflow_router
+from chatdevagi.controllers.budget import router as budget_router
+from chatdevagi.controllers.config import router as config_router
+from chatdevagi.controllers.organisation import router as organisation_router
+from chatdevagi.controllers.project import router as project_router
+from chatdevagi.controllers.twitter_oauth import router as twitter_oauth_router
+from chatdevagi.controllers.google_oauth import router as google_oauth_router
+from chatdevagi.controllers.resources import router as resources_router
+from chatdevagi.controllers.tool import router as tool_router
+from chatdevagi.controllers.tool_config import router as tool_config_router
+from chatdevagi.controllers.toolkit import router as toolkit_router
+from chatdevagi.controllers.user import router as user_router
+from chatdevagi.controllers.agent_execution_config import router as agent_execution_config
+from chatdevagi.controllers.analytics import router as analytics_router
+from chatdevagi.controllers.models_controller import router as models_controller_router
+from chatdevagi.controllers.knowledges import router as knowledges_router
+from chatdevagi.controllers.knowledge_configs import router as knowledge_configs_router
+from chatdevagi.controllers.vector_dbs import router as vector_dbs_router
+from chatdevagi.controllers.vector_db_indices import router as vector_db_indices_router
+from chatdevagi.controllers.marketplace_stats import router as marketplace_stats_router
+from chatdevagi.controllers.api_key import router as api_key_router
+from chatdevagi.controllers.api.agent import router as api_agent_router
+from chatdevagi.controllers.webhook import router as web_hook_router
+from chatdevagi.helper.tool_helper import register_toolkits, register_marketplace_toolkits
+from chatdevagi.lib.logger import logger
+from chatdevagi.llms.google_palm import GooglePalm
+from chatdevagi.llms.llm_model_factory import build_model_with_api_key
+from chatdevagi.llms.openai import OpenAi
+from chatdevagi.llms.replicate import Replicate
+from chatdevagi.llms.hugging_face import HuggingFace
+from chatdevagi.models.agent_template import AgentTemplate
+from chatdevagi.models.models_config import ModelsConfig
+from chatdevagi.models.organisation import Organisation
+from chatdevagi.models.types.login_request import LoginRequest
+from chatdevagi.models.types.validate_llm_api_key_request import ValidateAPIKeyRequest
+from chatdevagi.models.user import User
+from chatdevagi.models.workflows.agent_workflow import AgentWorkflow
+from chatdevagi.models.workflows.iteration_workflow import IterationWorkflow
+from chatdevagi.models.workflows.iteration_workflow_step import IterationWorkflowStep
 from urllib.parse import urlparse
 app = FastAPI()
 
@@ -140,11 +140,11 @@ app.include_router(web_hook_router,prefix="/webhook")
 # from pydantic to get secret key from .env
 class Settings(BaseModel):
     # jwt_secret = get_config("JWT_SECRET_KEY")
-    authjwt_secret_key: str = superagi.config.config.get_config("JWT_SECRET_KEY")
+    authjwt_secret_key: str = chatdevagi.config.config.get_config("JWT_SECRET_KEY")
 
 
 def create_access_token(email, Authorize: AuthJWT = Depends()):
-    expiry_time_hours = superagi.config.config.get_config("JWT_EXPIRY")
+    expiry_time_hours = chatdevagi.config.config.get_config("JWT_EXPIRY")
     if type(expiry_time_hours) == str:
         expiry_time_hours = int(expiry_time_hours)
     if expiry_time_hours is None:
@@ -211,7 +211,7 @@ async def startup_event():
         logger.info("Successfully registered local toolkits for all Organisations!")
 
     def register_toolkit_for_master_organisation():
-        marketplace_organisation_id = superagi.config.config.get_config("MARKETPLACE_ORGANISATION_ID")
+        marketplace_organisation_id = chatdevagi.config.config.get_config("MARKETPLACE_ORGANISATION_ID")
         marketplace_organisation = session.query(Organisation).filter(
             Organisation.id == marketplace_organisation_id).first()
         if marketplace_organisation is not None:
@@ -279,10 +279,10 @@ def github_auth_handler(code: str = Query(...), Authorize: AuthJWT = Depends()):
     """GitHub login callback"""
 
     github_token_url = 'https://github.com/login/oauth/access_token'
-    github_client_id = superagi.config.config.get_config("GITHUB_CLIENT_ID")
-    github_client_secret = superagi.config.config.get_config("GITHUB_CLIENT_SECRET")
+    github_client_id = chatdevagi.config.config.get_config("GITHUB_CLIENT_ID")
+    github_client_secret = chatdevagi.config.config.get_config("GITHUB_CLIENT_SECRET")
 
-    frontend_url = superagi.config.config.get_config("FRONTEND_URL", "http://localhost:3000")
+    frontend_url = chatdevagi.config.config.get_config("FRONTEND_URL", "http://localhost:3000")
     params = {
         'client_id': github_client_id,
         'client_secret': github_client_secret,
@@ -318,10 +318,10 @@ def github_auth_handler(code: str = Query(...), Authorize: AuthJWT = Depends()):
             redirect_url_success = f"{frontend_url}?access_token={jwt_token}&first_time_login={True}"
             return RedirectResponse(url=redirect_url_success)
         else:
-            redirect_url_failure = "https://superagi.com/"
+            redirect_url_failure = "https://chatdevagi.com/"
             return RedirectResponse(url=redirect_url_failure)
     else:
-        redirect_url_failure = "https://superagi.com/"
+        redirect_url_failure = "https://chatdevagi.com/"
         return RedirectResponse(url=redirect_url_failure)
 
 
@@ -381,7 +381,7 @@ async def say_hello(name: str, Authorize: AuthJWT = Depends()):
 def github_client_id():
     """Get GitHub Client ID"""
 
-    git_hub_client_id = superagi.config.config.get_config("GITHUB_CLIENT_ID")
+    git_hub_client_id = chatdevagi.config.config.get_config("GITHUB_CLIENT_ID")
     if git_hub_client_id:
         git_hub_client_id = git_hub_client_id.strip()
     return {"github_client_id": git_hub_client_id}

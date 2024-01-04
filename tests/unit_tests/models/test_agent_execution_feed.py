@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import Mock, create_autospec
 from sqlalchemy.orm import Session
-from superagi.models.agent_execution_feed import AgentExecutionFeed
+from chatdevagi.models.agent_execution_feed import AgentExecutionFeed
 
 
 def test_get_last_tool_response():

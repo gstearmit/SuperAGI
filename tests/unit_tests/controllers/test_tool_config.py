@@ -4,10 +4,10 @@ import pytest
 from fastapi.testclient import TestClient
 
 from main import app
-from superagi.controllers.tool_config import update_tool_config
-from superagi.models.organisation import Organisation
-from superagi.models.tool_config import ToolConfig
-from superagi.models.toolkit import Toolkit
+from chatdevagi.controllers.tool_config import update_tool_config
+from chatdevagi.models.organisation import Organisation
+from chatdevagi.models.tool_config import ToolConfig
+from chatdevagi.models.toolkit import Toolkit
 
 client = TestClient(app)
 
@@ -49,8 +49,8 @@ def test_update_tool_configs_success():
         {"key": "config_2", "value": "value_2"},
     ]
 
-    with patch('superagi.models.toolkit.Toolkit.get_toolkit_from_name') as get_toolkit_from_name, \
-            patch('superagi.controllers.tool_config.db') as mock_db:
+    with patch('chatdevagi.models.toolkit.Toolkit.get_toolkit_from_name') as get_toolkit_from_name, \
+            patch('chatdevagi.controllers.tool_config.db') as mock_db:
         mock_db.query.return_value.filter_by.return_value.first.side_effect = [
             # First call to query
             MagicMock(
@@ -70,9 +70,9 @@ def test_update_tool_configs_success():
 def test_get_all_tool_configs_success(mocks):
     user_organisation, user_toolkits, tool_config, toolkit_1, toolkit_2 = mocks
 
-    with patch('superagi.helper.auth.get_user_organisation') as mock_get_user_org, \
-            patch('superagi.controllers.tool_config.db') as mock_db, \
-            patch('superagi.helper.auth.db') as mock_auth_db:
+    with patch('chatdevagi.helper.auth.get_user_organisation') as mock_get_user_org, \
+            patch('chatdevagi.controllers.tool_config.db') as mock_db, \
+            patch('chatdevagi.helper.auth.db') as mock_auth_db:
         mock_db.session.query.return_value.filter_by.return_value.first.return_value = toolkit_1
         mock_db.session.query.return_value.filter.return_value.all.side_effect = [
             [tool_config]
@@ -94,9 +94,9 @@ def test_get_all_tool_configs_success(mocks):
 def test_get_all_tool_configs_toolkit_not_found(mocks):
     user_organisation, _, _, _, _ = mocks
 
-    with patch('superagi.helper.auth.get_user_organisation') as mock_get_user_org, \
-            patch('superagi.controllers.tool_config.db') as mock_db, \
-            patch('superagi.helper.auth.db') as mock_auth_db:
+    with patch('chatdevagi.helper.auth.get_user_organisation') as mock_get_user_org, \
+            patch('chatdevagi.controllers.tool_config.db') as mock_db, \
+            patch('chatdevagi.helper.auth.db') as mock_auth_db:
         mock_db.session.query.return_value.filter.return_value.first.return_value = None
         response = client.get(f"/tool_configs/get/toolkit/nonexistent_toolkit")
 
@@ -109,9 +109,9 @@ def test_get_tool_config_success(mocks):
     user_organisation, user_toolkits, tool_config, toolkit_1, toolkit_2 = mocks
 
     # Mock the database session and query functions
-    with patch('superagi.helper.auth.get_user_organisation') as mock_get_user_org, \
-            patch('superagi.controllers.tool_config.db') as mock_db, \
-            patch('superagi.helper.auth.db') as mock_auth_db:
+    with patch('chatdevagi.helper.auth.get_user_organisation') as mock_get_user_org, \
+            patch('chatdevagi.controllers.tool_config.db') as mock_db, \
+            patch('chatdevagi.helper.auth.db') as mock_auth_db:
         mock_db.session.query.return_value.filter.return_value.all.return_value = user_toolkits
         mock_db.session.query.return_value.filter_by.return_value = toolkit_1
         mock_db.session.query.return_value.filter.return_value.first.return_value = tool_config
@@ -134,9 +134,9 @@ def test_get_tool_config_unauthorized(mocks):
     user_organisation, user_toolkits, tool_config, toolkit_1, toolkit_2 = mocks
 
     # Mock the database session and query functions
-    with patch('superagi.helper.auth.get_user_organisation') as mock_get_user_org, \
-            patch('superagi.controllers.tool_config.db') as mock_db, \
-            patch('superagi.helper.auth.db') as mock_auth_db:
+    with patch('chatdevagi.helper.auth.get_user_organisation') as mock_get_user_org, \
+            patch('chatdevagi.controllers.tool_config.db') as mock_db, \
+            patch('chatdevagi.helper.auth.db') as mock_auth_db:
         # Mock the toolkit filtering
         mock_db.session.query.return_value.filter.return_value.all.return_value = user_toolkits
 
@@ -152,9 +152,9 @@ def test_get_tool_config_not_found(mocks):
     user_organisation, user_toolkits, tool_config, toolkit_1, toolkit_2 = mocks
 
     # Mock the database session and query functions
-    with patch('superagi.helper.auth.get_user_organisation') as mock_get_user_org, \
-            patch('superagi.controllers.tool_config.db') as mock_db, \
-            patch('superagi.helper.auth.db') as mock_auth_db:
+    with patch('chatdevagi.helper.auth.get_user_organisation') as mock_get_user_org, \
+            patch('chatdevagi.controllers.tool_config.db') as mock_db, \
+            patch('chatdevagi.helper.auth.db') as mock_auth_db:
         # Mock the toolkit filtering
         mock_db.session.query.return_value.filter.return_value.all.return_value = user_toolkits
         mock_db.session.query.return_value.filter_by.return_value = toolkit_1

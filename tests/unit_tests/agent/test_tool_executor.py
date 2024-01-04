@@ -3,8 +3,8 @@ from unittest.mock import Mock, patch
 
 from pydantic import ValidationError
 
-from superagi.agent.common_types import ToolExecutorResponse
-from superagi.agent.tool_executor import ToolExecutor
+from chatdevagi.agent.common_types import ToolExecutorResponse
+from chatdevagi.agent.tool_executor import ToolExecutor
 
 class MockTool:
     def __init__(self, name):
@@ -26,7 +26,7 @@ def test_tool_executor_finish(executor):
     assert res.status == 'COMPLETE'
     assert res.result == ''
 
-@patch('superagi.agent.tool_executor.EventHandler')
+@patch('chatdevagi.agent.tool_executor.EventHandler')
 def test_tool_executor_success(mock_event_handler, executor, mock_tools):
     for i, tool in enumerate(mock_tools):
         res = executor.execute(None, f'tool{i}', {'agent_execution_id': 1})
@@ -34,7 +34,7 @@ def test_tool_executor_success(mock_event_handler, executor, mock_tools):
         assert res.result == f'Tool {tool.name} returned: {tool.name}'
         assert res.retry == False
 
-@patch('superagi.agent.tool_executor.EventHandler')
+@patch('chatdevagi.agent.tool_executor.EventHandler')
 def test_tool_executor_generic_error(mock_event_handler, executor):
     tool = MockTool('error_tool')
     tool.execute = Mock(side_effect=Exception('generic error'))

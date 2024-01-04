@@ -1,4 +1,4 @@
-from superagi.helper.time_helper import get_time_difference, parse_interval_to_seconds
+from chatdevagi.helper.time_helper import get_time_difference, parse_interval_to_seconds
 import pytest
 
 def test_get_time_difference():

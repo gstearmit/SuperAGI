@@ -1,7 +1,7 @@
 from unittest.mock import MagicMock, patch
 from sqlalchemy.orm import Session
 
-from superagi.models.workflows.iteration_workflow import IterationWorkflow
+from chatdevagi.models.workflows.iteration_workflow import IterationWorkflow
 
 @patch('sqlalchemy.orm.Session.query')
 def test_find_by_id(mock_query):

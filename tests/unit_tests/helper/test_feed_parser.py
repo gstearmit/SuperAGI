@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime
-from superagi.helper.feed_parser import parse_feed
-from superagi.models.agent_execution_feed import AgentExecutionFeed
+from chatdevagi.helper.feed_parser import parse_feed
+from chatdevagi.models.agent_execution_feed import AgentExecutionFeed
 class TestParseFeed(unittest.TestCase):
     def test_parse_feed_system(self):
         current_time = datetime.now()

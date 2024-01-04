@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import patch, mock_open
 
-from superagi.agent.agent_prompt_template import AgentPromptTemplate
-from superagi.helper.prompt_reader import PromptReader
+from chatdevagi.agent.agent_prompt_template import AgentPromptTemplate
+from chatdevagi.helper.prompt_reader import PromptReader
 
 
 @patch("builtins.open", new_callable=mock_open, read_data="test_prompt")

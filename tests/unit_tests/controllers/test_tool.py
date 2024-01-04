@@ -4,9 +4,9 @@ import pytest
 from fastapi.testclient import TestClient
 
 from main import app
-from superagi.models.organisation import Organisation
-from superagi.models.tool import Tool
-from superagi.models.toolkit import Toolkit
+from chatdevagi.models.organisation import Organisation
+from chatdevagi.models.tool import Tool
+from chatdevagi.models.toolkit import Toolkit
 
 client = TestClient(app)
 
@@ -63,9 +63,9 @@ def test_get_tools_success(mocks):
     user_organisation, user_toolkits, tools, toolkit_1, toolkit_2, tool_1, tool_2, tool_3 = mocks
 
     # Mock the database session and query functions
-    with patch('superagi.helper.auth.get_user_organisation') as mock_get_user_org, \
-            patch('superagi.controllers.tool.db') as mock_db, \
-            patch('superagi.helper.auth.db') as mock_auth_db:
+    with patch('chatdevagi.helper.auth.get_user_organisation') as mock_get_user_org, \
+            patch('chatdevagi.controllers.tool.db') as mock_db, \
+            patch('chatdevagi.helper.auth.db') as mock_auth_db:
 
         # Mock the toolkit filtering
         mock_db.session.query.return_value.filter.return_value.all.side_effect = [user_toolkits, [tool_1, tool_2],

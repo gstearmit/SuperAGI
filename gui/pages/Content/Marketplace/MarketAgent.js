@@ -16,7 +16,7 @@ export default function MarketAgent() {
 
     if (window.location.href.toLowerCase().includes('marketplace')) {
       setShowMarketplace(true);
-      axios.get('https://app.superagi.com/api/agent_templates/marketplace/list')
+      axios.get('https://app.chatdevagi.com/api/agent_templates/marketplace/list')
         .then((response) => {
           const data = response.data || [];
           setAgentTemplates(data);

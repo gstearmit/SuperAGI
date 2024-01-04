@@ -13,7 +13,7 @@ export default function ModelTemplate({env, template, getModels, sendModelData})
     function handleInstallClick() {
         if (window.location.href.toLowerCase().includes('marketplace')) {
             if (env === 'PROD') {
-                window.open(`https://app.superagi.com/`, '_self');
+                window.open(`https://app.chatdevagi.com/`, '_self');
             } else {
                 window.location.href = '/';
             }

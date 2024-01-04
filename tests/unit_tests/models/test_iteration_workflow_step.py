@@ -2,7 +2,7 @@ import pytest
 from unittest.mock import MagicMock
 from sqlalchemy.orm import Session
 
-from superagi.models.workflows.iteration_workflow_step import IterationWorkflowStep
+from chatdevagi.models.workflows.iteration_workflow_step import IterationWorkflowStep
 
 
 @pytest.fixture

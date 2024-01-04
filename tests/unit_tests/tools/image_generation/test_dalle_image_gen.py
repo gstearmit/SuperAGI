@@ -1,10 +1,10 @@
 from unittest.mock import patch, MagicMock
-from superagi.tools.image_generation.dalle_image_gen import DalleImageGenTool
+from chatdevagi.tools.image_generation.dalle_image_gen import DalleImageGenTool
 
 
-@patch('superagi.tools.image_generation.dalle_image_gen.OpenAiDalle')
-@patch('superagi.tools.image_generation.dalle_image_gen.requests')
-@patch('superagi.tools.image_generation.dalle_image_gen.Configuration')
+@patch('chatdevagi.tools.image_generation.dalle_image_gen.OpenAiDalle')
+@patch('chatdevagi.tools.image_generation.dalle_image_gen.requests')
+@patch('chatdevagi.tools.image_generation.dalle_image_gen.Configuration')
 def test_execute_dalle_image_gen_tool(mock_config, mock_requests, mock_dalle):
     # Arrange
     tool = DalleImageGenTool()
@@ -38,9 +38,9 @@ def test_execute_dalle_image_gen_tool(mock_config, mock_requests, mock_dalle):
     tool.resource_manager.write_binary_file.assert_any_call("image2.png", b"test_image_data")
 
 
-@patch('superagi.tools.image_generation.dalle_image_gen.OpenAiDalle')
-@patch('superagi.tools.image_generation.dalle_image_gen.requests')
-@patch('superagi.tools.image_generation.dalle_image_gen.Configuration')
+@patch('chatdevagi.tools.image_generation.dalle_image_gen.OpenAiDalle')
+@patch('chatdevagi.tools.image_generation.dalle_image_gen.requests')
+@patch('chatdevagi.tools.image_generation.dalle_image_gen.Configuration')
 def test_execute_dalle_image_gen_tool_invalid_api_key(mock_config, mock_requests, mock_dalle):
     tool = DalleImageGenTool()
     tool.toolkit_config = MagicMock(toolkit_id=1)

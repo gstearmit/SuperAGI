@@ -5,7 +5,7 @@ from unittest.mock import patch, Mock
 import pytest
 from PIL import Image
 
-from superagi.tools.image_generation.stable_diffusion_image_gen import StableDiffusionImageGenTool
+from chatdevagi.tools.image_generation.stable_diffusion_image_gen import StableDiffusionImageGenTool
 
 def mock_get_tool_config(key):
     configs = {
@@ -25,15 +25,15 @@ def create_sample_image_base64():
 
 @pytest.fixture
 def stable_diffusion_tool():
-    with patch('superagi.tools.image_generation.stable_diffusion_image_gen.requests.post') as post_mock, \
+    with patch('chatdevagi.tools.image_generation.stable_diffusion_image_gen.requests.post') as post_mock, \
             patch(
-                'superagi.tools.image_generation.stable_diffusion_image_gen.FileManager') as resource_manager_mock, \
+                'chatdevagi.tools.image_generation.stable_diffusion_image_gen.FileManager') as resource_manager_mock, \
                 patch(
-                'superagi.tools.image_generation.stable_diffusion_image_gen.ResourceHelper') as resource_helper_mock, \
+                'chatdevagi.tools.image_generation.stable_diffusion_image_gen.ResourceHelper') as resource_helper_mock, \
                     patch(
-                        'superagi.tools.image_generation.stable_diffusion_image_gen.Agent') as agent_mock, \
+                        'chatdevagi.tools.image_generation.stable_diffusion_image_gen.Agent') as agent_mock, \
                         patch(
-                        'superagi.tools.image_generation.stable_diffusion_image_gen.AgentExecution') as agent_execution_mock:
+                        'chatdevagi.tools.image_generation.stable_diffusion_image_gen.AgentExecution') as agent_execution_mock:
 
         # Create a mock response object
         response_mock = Mock()

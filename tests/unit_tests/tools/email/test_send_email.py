@@ -1,6 +1,6 @@
 from unittest.mock import patch, MagicMock
 
-from superagi.tools.email.send_email import SendEmailTool
+from chatdevagi.tools.email.send_email import SendEmailTool
 
 
 def mock_get_tool_config(key):
@@ -31,7 +31,7 @@ def mock_get_draft_tool_config(key):
 
 
 @patch('smtplib.SMTP')
-@patch('superagi.helper.imap_email.ImapEmail.imap_open')
+@patch('chatdevagi.helper.imap_email.ImapEmail.imap_open')
 def test_execute_sends_email(mock_imap_open, mock_smtp):
     # Given
     send_email_tool = SendEmailTool()
@@ -50,7 +50,7 @@ def test_execute_sends_email(mock_imap_open, mock_smtp):
 
 
 @patch('smtplib.SMTP')
-@patch('superagi.helper.imap_email.ImapEmail.imap_open')
+@patch('chatdevagi.helper.imap_email.ImapEmail.imap_open')
 def test_execute_sends_email_to_draft(mock_imap_open, mock_smtp):
     send_email_tool = SendEmailTool()
     send_email_tool.toolkit_config.get_tool_config = mock_get_draft_tool_config

@@ -1,10 +1,10 @@
 from unittest.mock import patch, Mock
 
-from superagi.tools.email.read_email import ReadEmailTool
+from chatdevagi.tools.email.read_email import ReadEmailTool
 
 
-@patch('superagi.tools.email.read_email.ImapEmail')
-@patch('superagi.tools.email.read_email.ReadEmail')
+@patch('chatdevagi.tools.email.read_email.ImapEmail')
+@patch('chatdevagi.tools.email.read_email.ReadEmail')
 def test_execute(mock_read_email, mock_imap_email):
     # Configure the mock objects
     mock_conn = Mock()

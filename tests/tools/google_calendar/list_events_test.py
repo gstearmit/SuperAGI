@@ -2,9 +2,9 @@ import unittest
 from datetime import datetime
 from unittest.mock import MagicMock, patch
 from pydantic import ValidationError
-from superagi.tools.google_calendar.list_calendar_events import ListCalendarEventsInput, ListCalendarEventsTool
-from superagi.helper.google_calendar_creds import GoogleCalendarCreds
-from superagi.helper.calendar_date import CalendarDate
+from chatdevagi.tools.google_calendar.list_calendar_events import ListCalendarEventsInput, ListCalendarEventsTool
+from chatdevagi.helper.google_calendar_creds import GoogleCalendarCreds
+from chatdevagi.helper.calendar_date import CalendarDate
 
 class TestListCalendarEventsInput(unittest.TestCase):
     

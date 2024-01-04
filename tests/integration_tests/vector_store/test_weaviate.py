@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import Mock, patch, call, MagicMock
-from superagi.vector_store.weaviate import create_weaviate_client, Weaviate, Document
+from chatdevagi.vector_store.weaviate import create_weaviate_client, Weaviate, Document
 
 class TestWeaviateClient(unittest.TestCase):
     @patch('weaviate.Client')

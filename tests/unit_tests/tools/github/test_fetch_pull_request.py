@@ -2,12 +2,12 @@ import pytest
 from unittest.mock import patch, Mock
 from pydantic import ValidationError
 
-from superagi.tools.github.fetch_pull_request import GithubFetchPullRequest, GithubFetchPullRequestSchema
+from chatdevagi.tools.github.fetch_pull_request import GithubFetchPullRequest, GithubFetchPullRequestSchema
 
 
 @pytest.fixture
 def mock_github_helper():
-    with patch('superagi.tools.github.fetch_pull_request.GithubHelper') as MockGithubHelper:
+    with patch('chatdevagi.tools.github.fetch_pull_request.GithubHelper') as MockGithubHelper:
         yield MockGithubHelper
 
 

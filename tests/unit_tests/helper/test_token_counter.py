@@ -2,9 +2,9 @@ import pytest
 
 from typing import List
 from unittest.mock import MagicMock, patch
-from superagi.types.common import BaseMessage
-from superagi.helper.token_counter import TokenCounter
-from superagi.models.models import Models
+from chatdevagi.types.common import BaseMessage
+from chatdevagi.helper.token_counter import TokenCounter
+from chatdevagi.models.models import Models
 
 
 @pytest.fixture()

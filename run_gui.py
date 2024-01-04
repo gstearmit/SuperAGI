@@ -3,7 +3,7 @@ import sys
 import subprocess
 from time import sleep
 import shutil
-from superagi.lib.logger import logger
+from chatdevagi.lib.logger import logger
 
 def check_command(command, message):
     if not shutil.which(command):

@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch, Mock
-from superagi.models.agent_config import AgentConfiguration
-from superagi.controllers.types.agent_execution_config import AgentRunIn
+from chatdevagi.models.agent_config import AgentConfiguration
+from chatdevagi.controllers.types.agent_execution_config import AgentRunIn
 
 def test_update_existing_toolkits():
     agent_id = 1

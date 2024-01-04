@@ -6,7 +6,7 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from superagi.tool_manager import parse_github_url, download_tool, load_tools_config, download_and_extract_tools, \
+from chatdevagi.tool_manager import parse_github_url, download_tool, load_tools_config, download_and_extract_tools, \
     update_tools_json
 
 
@@ -53,15 +53,15 @@ def test_load_tools_config(mock_json_load):
     assert config == {"tool1": "url1", "tool2": "url2"}
 
 
-@patch('superagi.tool_manager.download_tool')
-@patch('superagi.tool_manager.load_tools_config')
+@patch('chatdevagi.tool_manager.download_tool')
+@patch('chatdevagi.tool_manager.load_tools_config')
 def test_download_and_extract_tools(mock_load_tools_config, mock_download_tool):
     mock_load_tools_config.return_value = {"tool1": "url1", "tool2": "url2"}
     download_and_extract_tools()
 
     mock_load_tools_config.assert_called_once()
-    mock_download_tool.assert_any_call('url1', os.path.join('superagi', 'tools', 'external_tools', 'tool1'))
-    mock_download_tool.assert_any_call('url2', os.path.join('superagi', 'tools', 'external_tools', 'tool2'))
+    mock_download_tool.assert_any_call('url1', os.path.join('chatdevagi', 'tools', 'external_tools', 'tool1'))
+    mock_download_tool.assert_any_call('url2', os.path.join('chatdevagi', 'tools', 'external_tools', 'tool2'))
 
 
 def test_update_tools_json(tools_json_path):

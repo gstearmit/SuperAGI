@@ -6,7 +6,7 @@ from unittest.mock import patch, Mock
 
 import pytest
 
-from superagi.helper.tool_helper import (
+from chatdevagi.helper.tool_helper import (
     parse_github_url,
     load_module_from_file,
     extract_repo_name,
@@ -101,10 +101,10 @@ def test_download_tool(mock_zip, mock_get):
 
 
 def test_handle_tools_import():
-    with patch('superagi.config.config.get_config') as mock_get_config, \
+    with patch('chatdevagi.config.config.get_config') as mock_get_config, \
             patch('os.listdir') as mock_listdir, \
-            patch('superagi.helper.auth.db') as mock_auth_db:
-        mock_get_config.return_value = "superagi/tools"
+            patch('chatdevagi.helper.auth.db') as mock_auth_db:
+        mock_get_config.return_value = "chatdevagi/tools"
         mock_listdir.return_value = "test_tool"
         initial_path_length = len(sys.path)
         handle_tools_import()

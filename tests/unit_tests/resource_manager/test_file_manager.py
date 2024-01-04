@@ -1,11 +1,11 @@
 import pytest
 from unittest.mock import Mock, patch
-from superagi.models.resource import Resource
-from superagi.helper.resource_helper import ResourceHelper
-from superagi.helper.s3_helper import S3Helper
-from superagi.lib.logger import logger
+from chatdevagi.models.resource import Resource
+from chatdevagi.helper.resource_helper import ResourceHelper
+from chatdevagi.helper.s3_helper import S3Helper
+from chatdevagi.lib.logger import logger
 
-from superagi.resource_manager.file_manager import FileManager
+from chatdevagi.resource_manager.file_manager import FileManager
 
 @pytest.fixture
 def resource_manager():

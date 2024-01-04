@@ -1,7 +1,7 @@
 import unittest
 
-from superagi.tools.searx.searx import SearxSearchTool
-from superagi.tools.searx.searx_toolkit import SearxSearchToolkit
+from chatdevagi.tools.searx.searx import SearxSearchTool
+from chatdevagi.tools.searx.searx_toolkit import SearxSearchToolkit
 
 
 class TestSearxSearchToolkit(unittest.TestCase):

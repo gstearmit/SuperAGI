@@ -1,4 +1,4 @@
-from superagi.helper.json_cleaner import JsonCleaner
+from chatdevagi.helper.json_cleaner import JsonCleaner
 import pytest
 
 def test_extract_json_section():

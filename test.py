@@ -1,17 +1,17 @@
 import argparse
 from datetime import datetime
 from time import time
-from superagi.lib.logger import logger
+from chatdevagi.lib.logger import logger
 
 from sqlalchemy.orm import sessionmaker
 
-from superagi.worker import execute_agent
-from superagi.models.agent import Agent
-from superagi.models.agent_config import AgentConfiguration
-from superagi.models.agent_execution import AgentExecution
-from superagi.models.db import connect_db
-from superagi.models.organisation import Organisation
-from superagi.models.project import Project
+from chatdevagi.worker import execute_agent
+from chatdevagi.models.agent import Agent
+from chatdevagi.models.agent_config import AgentConfiguration
+from chatdevagi.models.agent_execution import AgentExecution
+from chatdevagi.models.db import connect_db
+from chatdevagi.models.organisation import Organisation
+from chatdevagi.models.project import Project
 
 parser = argparse.ArgumentParser(description='Create a new agent.')
 parser.add_argument('--name', type=str, help='Agent name for the script.')
@@ -38,7 +38,7 @@ def ask_user_for_goals():
     return goals
 
 
-def run_superagi_cli(agent_name=None, agent_description=None, agent_goals=None):
+def run_chatdevagi_cli(agent_name=None, agent_description=None, agent_goals=None):
     # Create default organization
     organization = Organisation(name='Default Organization', description='Default organization description')
     session.add(organization)
@@ -106,4 +106,4 @@ def run_superagi_cli(agent_name=None, agent_description=None, agent_goals=None):
     execute_agent.delay(execution.id, datetime.now())
 
 
-run_superagi_cli(agent_name=agent_name, agent_description=agent_description, agent_goals=agent_goals)
+run_chatdevagi_cli(agent_name=agent_name, agent_description=agent_description, agent_goals=agent_goals)

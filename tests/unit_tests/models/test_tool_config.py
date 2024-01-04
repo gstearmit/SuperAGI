@@ -2,8 +2,8 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from superagi.models.tool_config import ToolConfig
-from superagi.models.toolkit import Toolkit
+from chatdevagi.models.tool_config import ToolConfig
+from chatdevagi.models.toolkit import Toolkit
 
 
 @pytest.fixture

@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import MagicMock
-from superagi.models.call_logs import CallLogs
+from chatdevagi.models.call_logs import CallLogs
 
 @pytest.fixture
 def mock_session():

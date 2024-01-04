@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import Mock, MagicMock, call
-from superagi.models.vector_db_indices import VectordbIndices
+from chatdevagi.models.vector_db_indices import VectordbIndices
 
 class TestVectordbIndices(unittest.TestCase):
     def setUp(self):

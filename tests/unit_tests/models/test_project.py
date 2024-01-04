@@ -1,7 +1,7 @@
 from unittest.mock import create_autospec
 
 from sqlalchemy.orm import Session
-from superagi.models.project import Project
+from chatdevagi.models.project import Project
 
 def test_find_by_org_id():
     # Create a mock session

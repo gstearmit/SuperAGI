@@ -16,7 +16,7 @@ export default function MarketTools() {
 
     if (window.location.href.toLowerCase().includes('marketplace')) {
       setShowMarketplace(true);
-      axios.get('https://app.superagi.com/api/toolkits/marketplace/list/0')
+      axios.get('https://app.chatdevagi.com/api/toolkits/marketplace/list/0')
         .then((response) => {
           const data = response.data || [];
           const filteredData = data?.filter((item) => !excludedToolkits().includes(item.name));

@@ -138,7 +138,7 @@ export default function App() {
 
           if (typeof window !== 'undefined' && access_token) {
             // localStorage.setItem('accessToken', access_token);
-            Cookies.set('accessToken', access_token, {domain: '.superagi.com', path: '/'});
+            Cookies.set('accessToken', access_token, {domain: '.chatdevagi.com', path: '/'});
             refreshUrl();
           }
           validateAccessToken()
@@ -159,7 +159,7 @@ export default function App() {
                 handleSignUpSource(signupSource)
               }
               fetchOrganisation(response.data.id);
-              Cookies.set('mixpanel_initialized', 'true', {domain: '.superagi.com', path: '/'});
+              Cookies.set('mixpanel_initialized', 'true', {domain: '.chatdevagi.com', path: '/'});
             })
             .catch((error) => {
               console.error('Error validating access token:', error);
@@ -189,8 +189,8 @@ export default function App() {
   useEffect(() => {
     if (selectedProject !== null) {
       const source = Cookies.get('Source')
-      if (source === 'models.superagi')
-        window.open('https://models.superagi.com/', '_self');
+      if (source === 'models.chatdevagi')
+        window.open('https://models.chatdevagi.com/', '_self');
       else
         setApplicationState("AUTHENTICATED");
     }
@@ -218,7 +218,7 @@ export default function App() {
 
   const handleLocalEnviroment = () => {
     const userData = {
-      "name": "SuperAGI User",
+      "name": "chatdevagi User",
       "email": "super6@agi.com",
       "password": "pass@123",
     }

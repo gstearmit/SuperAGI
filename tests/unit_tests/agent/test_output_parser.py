@@ -1,6 +1,6 @@
 import pytest
 
-from superagi.agent.output_parser import AgentGPTAction, AgentSchemaOutputParser
+from chatdevagi.agent.output_parser import AgentGPTAction, AgentSchemaOutputParser
 
 import pytest
 

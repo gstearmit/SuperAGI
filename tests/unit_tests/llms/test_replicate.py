@@ -3,8 +3,8 @@ from unittest.mock import patch
 import pytest
 import requests
 from unittest import TestCase
-from superagi.llms.replicate import Replicate
-from superagi.config.config import get_config
+from chatdevagi.llms.replicate import Replicate
+from chatdevagi.config.config import get_config
 
 class TestReplicate(TestCase):
 

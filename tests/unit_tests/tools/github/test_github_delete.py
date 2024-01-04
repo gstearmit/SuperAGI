@@ -1,11 +1,11 @@
 from unittest.mock import MagicMock, patch
 
-from superagi.tools.github.delete_file import GithubDeleteFileTool, GithubDeleteFileSchema
+from chatdevagi.tools.github.delete_file import GithubDeleteFileTool, GithubDeleteFileSchema
 
 
 def test_github_delete_file_tool():
     # Test case: Successfully delete a file and create a pull request
-    with patch("superagi.tools.github.delete_file.GithubHelper") as mock_github_helper:
+    with patch("chatdevagi.tools.github.delete_file.GithubHelper") as mock_github_helper:
         mock_github_helper.return_value.make_fork.return_value = 201
         mock_github_helper.return_value.create_branch.return_value = 201
         mock_github_helper.return_value.sync_branch.return_value = None
@@ -28,7 +28,7 @@ def test_github_delete_file_tool():
         assert result == "Pull request to Delete test_file.txt has been created"
 
     # Test case: Error while deleting file
-    with patch("superagi.tools.github.delete_file.GithubHelper") as mock_github_helper:
+    with patch("chatdevagi.tools.github.delete_file.GithubHelper") as mock_github_helper:
         mock_github_helper.return_value.make_fork.return_value = 201
         mock_github_helper.return_value.create_branch.return_value = 201
         mock_github_helper.return_value.sync_branch.return_value = None

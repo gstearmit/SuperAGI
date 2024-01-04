@@ -3,14 +3,14 @@ import pytest
 from unittest.mock import MagicMock, patch
 from botocore.exceptions import NoCredentialsError
 from fastapi import HTTPException
-from superagi.helper.s3_helper import S3Helper
+from chatdevagi.helper.s3_helper import S3Helper
 
 @pytest.fixture()
 def s3helper_object():
     return S3Helper()
 
 def test__get_s3_client(s3helper_object):
-    with patch('superagi.helper.s3_helper.get_config', return_value='test') as mock_get_config:
+    with patch('chatdevagi.helper.s3_helper.get_config', return_value='test') as mock_get_config:
         s3_client = s3helper_object._S3Helper__get_s3_client()
         mock_get_config.assert_any_call('AWS_ACCESS_KEY_ID')
         mock_get_config.assert_any_call('AWS_SECRET_ACCESS_KEY')

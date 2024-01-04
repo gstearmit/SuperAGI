@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import MagicMock
-from superagi.apm.knowledge_handler import KnowledgeHandler
+from chatdevagi.apm.knowledge_handler import KnowledgeHandler
 from fastapi import HTTPException
 from datetime import datetime
 import pytz

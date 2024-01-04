@@ -2,7 +2,7 @@ import pytest
 from unittest.mock import MagicMock, patch, Mock
 from sqlalchemy.orm import Session
 import json
-from superagi.models.workflows.agent_workflow_step import AgentWorkflowStep
+from chatdevagi.models.workflows.agent_workflow_step import AgentWorkflowStep
 
 
 @patch('sqlalchemy.orm.Session.query')
@@ -54,7 +54,7 @@ def test_to_dict():
 @patch('sqlalchemy.orm.Session.add')
 @patch('sqlalchemy.orm.Session.commit')
 @patch('sqlalchemy.orm.Session.query')
-@patch('superagi.models.workflows.agent_workflow_step.AgentWorkflowStepTool.find_or_create_tool')
+@patch('chatdevagi.models.workflows.agent_workflow_step.AgentWorkflowStepTool.find_or_create_tool')
 def test_find_or_create_tool_workflow_step(mock_find_or_create_tool, mock_query, mock_commit, mock_add):
     mock_find_or_create_tool.return_value = MagicMock(id=2)
     mock_query.return_value.filter.return_value.first.return_value = None  # to simulate workflow_step not exists yet
@@ -76,7 +76,7 @@ def test_find_or_create_tool_workflow_step(mock_find_or_create_tool, mock_query,
 
 @patch('sqlalchemy.orm.Session.commit')
 @patch('sqlalchemy.orm.Session.query')
-@patch('superagi.models.workflows.agent_workflow_step.AgentWorkflowStepTool.find_or_create_tool')
+@patch('chatdevagi.models.workflows.agent_workflow_step.AgentWorkflowStepTool.find_or_create_tool')
 def test_find_or_create_tool_workflow_step_exists(mock_find_or_create_tool, mock_query, mock_commit):
     existing_workflow_step = MagicMock(spec=AgentWorkflowStep)
     mock_find_or_create_tool.return_value = MagicMock(id=2)
@@ -95,7 +95,7 @@ def test_find_or_create_tool_workflow_step_exists(mock_find_or_create_tool, mock
 
 @patch('sqlalchemy.orm.Session.commit')
 @patch('sqlalchemy.orm.Session.query')
-@patch('superagi.models.workflows.iteration_workflow.IterationWorkflow.find_workflow_by_name')
+@patch('chatdevagi.models.workflows.iteration_workflow.IterationWorkflow.find_workflow_by_name')
 def test_find_or_create_iteration_workflow_step_exists(mock_find_workflow_by_name, mock_query, mock_commit):
     existing_workflow_step = MagicMock(spec=AgentWorkflowStep)
     mock_find_workflow_by_name.return_value = MagicMock(id=2)
@@ -114,7 +114,7 @@ def test_find_or_create_iteration_workflow_step_exists(mock_find_workflow_by_nam
 
 @patch('sqlalchemy.orm.Session.commit')
 @patch('sqlalchemy.orm.Session.query')
-@patch('superagi.models.workflows.agent_workflow_step.AgentWorkflowStep.find_by_id')
+@patch('chatdevagi.models.workflows.agent_workflow_step.AgentWorkflowStep.find_by_id')
 def test_add_next_workflow_step(mock_find_by_id, mock_query, mock_commit):
     next_workflow_step = MagicMock(spec=AgentWorkflowStep, unique_id='2')
     mock_find_by_id.return_value = next_workflow_step
@@ -135,7 +135,7 @@ def test_add_next_workflow_step(mock_find_by_id, mock_query, mock_commit):
 
 @patch('sqlalchemy.orm.Session.commit')
 @patch('sqlalchemy.orm.Session.query')
-@patch('superagi.models.workflows.agent_workflow_step.AgentWorkflowStep.find_by_id')
+@patch('chatdevagi.models.workflows.agent_workflow_step.AgentWorkflowStep.find_by_id')
 def test_add_next_workflow_step_existing(mock_find_by_id, mock_query, mock_commit):
     next_workflow_step = MagicMock(spec=AgentWorkflowStep, unique_id='2')
     mock_find_by_id.return_value = next_workflow_step
@@ -155,8 +155,8 @@ def test_add_next_workflow_step_existing(mock_find_by_id, mock_query, mock_commi
     assert result.next_steps[0]['step_id'] == '2'
 
 
-@patch('superagi.models.workflows.agent_workflow_step.AgentWorkflowStep.find_by_id')
-@patch('superagi.models.workflows.agent_workflow_step.AgentWorkflowStep.find_by_unique_id')
+@patch('chatdevagi.models.workflows.agent_workflow_step.AgentWorkflowStep.find_by_id')
+@patch('chatdevagi.models.workflows.agent_workflow_step.AgentWorkflowStep.find_by_unique_id')
 def test_fetch_default_next_step(mock_find_by_unique_id, mock_find_by_id):
     current_step = MagicMock(spec=AgentWorkflowStep, next_steps=[{"step_response": 'default', "step_id": '2'}])
     next_step = MagicMock(spec=AgentWorkflowStep, unique_id='2')
@@ -169,7 +169,7 @@ def test_fetch_default_next_step(mock_find_by_unique_id, mock_find_by_id):
     )
     assert result == next_step
 
-@patch('superagi.models.workflows.agent_workflow_step.AgentWorkflowStep.find_by_id')
+@patch('chatdevagi.models.workflows.agent_workflow_step.AgentWorkflowStep.find_by_id')
 def test_fetch_default_next_step_none(mock_find_by_id):
     current_step = MagicMock(spec=AgentWorkflowStep, next_steps=[{"step_response": 'non-default', "step_id": '2'}])
     mock_find_by_id.return_value = current_step

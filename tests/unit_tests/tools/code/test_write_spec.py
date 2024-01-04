@@ -2,7 +2,7 @@ from unittest.mock import Mock
 
 import pytest
 
-from superagi.tools.code.write_spec import WriteSpecTool
+from chatdevagi.tools.code.write_spec import WriteSpecTool
 from unittest.mock import MagicMock
 
 

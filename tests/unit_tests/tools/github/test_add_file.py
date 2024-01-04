@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import MagicMock, patch
 
-from superagi.helper.github_helper import GithubHelper
-from superagi.tools.github.add_file import GithubAddFileTool, GithubAddFileSchema
+from chatdevagi.helper.github_helper import GithubHelper
+from chatdevagi.tools.github.add_file import GithubAddFileTool, GithubAddFileSchema
 
 
 def test_github_add_file_schema():

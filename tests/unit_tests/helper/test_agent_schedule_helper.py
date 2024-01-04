@@ -1,13 +1,13 @@
 import pytest
 from unittest.mock import patch, MagicMock, call
-from superagi.helper.agent_schedule_helper import AgentScheduleHelper
-from superagi.models.agent_schedule import AgentSchedule
+from chatdevagi.helper.agent_schedule_helper import AgentScheduleHelper
+from chatdevagi.models.agent_schedule import AgentSchedule
 from datetime import datetime, timedelta
 
-@patch('superagi.helper.agent_schedule_helper.parse_interval_to_seconds')
-@patch('superagi.models.agent_schedule.AgentSchedule')
-@patch('superagi.helper.agent_schedule_helper.Session')
-@patch('superagi.helper.agent_schedule_helper.datetime')
+@patch('chatdevagi.helper.agent_schedule_helper.parse_interval_to_seconds')
+@patch('chatdevagi.models.agent_schedule.AgentSchedule')
+@patch('chatdevagi.helper.agent_schedule_helper.Session')
+@patch('chatdevagi.helper.agent_schedule_helper.datetime')
 def test_update_next_scheduled_time(mock_datetime, mock_session, mock_agent_schedule, mock_parse_interval_to_seconds):
     
     mock_datetime.now.return_value = datetime(2022, 1, 1, 10, 0)
@@ -38,14 +38,14 @@ def test_update_next_scheduled_time(mock_datetime, mock_session, mock_agent_sche
     assert mock_agent.status == 'SCHEDULED'
 
 
-@patch('superagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__create_execution_name_for_scheduling')
-@patch('superagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__should_execute_agent')
-@patch('superagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__can_remove_agent')
-@patch('superagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__execute_schedule')
-@patch('superagi.helper.agent_schedule_helper.parse_interval_to_seconds')
-@patch('superagi.helper.agent_schedule_helper.AgentSchedule')
-@patch('superagi.helper.agent_schedule_helper.Session')
-@patch('superagi.helper.agent_schedule_helper.datetime')
+@patch('chatdevagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__create_execution_name_for_scheduling')
+@patch('chatdevagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__should_execute_agent')
+@patch('chatdevagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__can_remove_agent')
+@patch('chatdevagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__execute_schedule')
+@patch('chatdevagi.helper.agent_schedule_helper.parse_interval_to_seconds')
+@patch('chatdevagi.helper.agent_schedule_helper.AgentSchedule')
+@patch('chatdevagi.helper.agent_schedule_helper.Session')
+@patch('chatdevagi.helper.agent_schedule_helper.datetime')
 def test_run_scheduled_agents(
     mock_datetime, 
     mock_session, 

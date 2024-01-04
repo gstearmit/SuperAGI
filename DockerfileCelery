@@ -11,7 +11,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Downloads the tools
-RUN python superagi/tool_manager.py
+RUN python chatdevagi/tool_manager.py
 
 # Set executable permissions for install_tool_dependencies.sh
 RUN chmod +x install_tool_dependencies.sh
@@ -20,7 +20,7 @@ RUN chmod +x install_tool_dependencies.sh
 RUN ./install_tool_dependencies.sh
 
 # Downloads the tools
-RUN python superagi/tool_manager.py
+RUN python chatdevagi/tool_manager.py
 
 # Set executable permissions for install_tool_dependencies.sh
 RUN chmod +x install_tool_dependencies.sh
@@ -29,4 +29,4 @@ RUN chmod +x install_tool_dependencies.sh
 RUN ./install_tool_dependencies.sh
 
 
-CMD ["celery", "-A", "superagi.worker", "worker", "--beat","--loglevel=info"]
+CMD ["celery", "-A", "chatdevagi.worker", "worker", "--beat","--loglevel=info"]

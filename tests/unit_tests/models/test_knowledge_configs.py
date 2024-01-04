@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import Mock, patch, MagicMock
 from sqlalchemy.orm.session import Session
 
-from superagi.models.knowledge_configs import KnowledgeConfigs
+from chatdevagi.models.knowledge_configs import KnowledgeConfigs
 
 class TestKnowledgeConfigs(unittest.TestCase):
 

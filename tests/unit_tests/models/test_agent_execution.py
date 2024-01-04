@@ -5,10 +5,10 @@ import pytest
 from pytest_mock import mocker
 from sqlalchemy.orm import Session
 
-from superagi.models.agent import Agent
-from superagi.models.agent_execution import AgentExecution
-from superagi.models.workflows.agent_workflow_step import AgentWorkflowStep
-from superagi.models.workflows.iteration_workflow import IterationWorkflow
+from chatdevagi.models.agent import Agent
+from chatdevagi.models.agent_execution import AgentExecution
+from chatdevagi.models.workflows.agent_workflow_step import AgentWorkflowStep
+from chatdevagi.models.workflows.iteration_workflow import IterationWorkflow
 def test_get_agent_execution_from_id():
     # Create a mock session
     session = create_autospec(Session)

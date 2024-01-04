@@ -3,8 +3,8 @@
 **/.venv
 config.yaml
 __pycache__
-superagi/models/__pycache__
-superagi/controllers/__pycache__
+chatdevagi/models/__pycache__
+chatdevagi/controllers/__pycache__
 **agent_dictvenv
 **/__gitpycache__/
 gui/node_modules
@@ -17,8 +17,8 @@ workspace/output
 workspace/input
 celerybeat-schedule
 ../bfg-report*
-superagi/tools/marketplace_tools/
-superagi/tools/external_tools/
+chatdevagi/tools/marketplace_tools/
+chatdevagi/tools/external_tools/
 tests/unit_tests/resource_manager/test_path
 /tools.json
 /appmap.yml

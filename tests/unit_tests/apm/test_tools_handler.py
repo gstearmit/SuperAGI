@@ -1,9 +1,9 @@
 import pytest
 from unittest.mock import MagicMock, patch
 from fastapi import HTTPException
-from superagi.apm.tools_handler import ToolsHandler
+from chatdevagi.apm.tools_handler import ToolsHandler
 from sqlalchemy.orm import Session
-from superagi.models.agent_config import AgentConfiguration
+from chatdevagi.models.agent_config import AgentConfiguration
 
 from datetime import datetime
 import pytz

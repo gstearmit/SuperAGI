@@ -23,16 +23,16 @@ MAX_MODEL_TOKEN_LIMIT: 4032 # set to 2048 for llama
 # redis details
 DB_NAME: super_agi_main
 DB_HOST: super__postgres
-DB_USERNAME: superagi
+DB_USERNAME: chatdevagi
 DB_PASSWORD: password
-DB_URL: postgresql://superagi:password@super__postgres:5432/super_agi_main
+DB_URL: postgresql://chatdevagi:password@super__postgres:5432/super_agi_main
 REDIS_URL: "super__redis:6379"
 
 #STORAGE TYPE ("FILE" or "S3")
 STORAGE_TYPE: "FILE"
 
 #TOOLS
-TOOLS_DIR: "superagi/tools"
+TOOLS_DIR: "chatdevagi/tools"
 
 #STORAGE INFO FOR FILES
 RESOURCES_INPUT_ROOT_DIR: workspace/input/{agent_id}
@@ -80,7 +80,7 @@ EMAIL_PASSWORD: YOUR_EMAIL_APP_PASSWORD #get the app password from (https://myac
 EMAIL_SMTP_HOST: smtp.gmail.com #Change the SMTP host if not using Gmail
 EMAIL_SMTP_PORT: 587 #Change the SMTP port if not using Gmail
 EMAIL_IMAP_SERVER: imap.gmail.com #Change the IMAP Host if not using Gmail
-EMAIL_SIGNATURE: Email sent by SuperAGI
+EMAIL_SIGNATURE: Email sent by chatdevagi
 EMAIL_DRAFT_MODE_WITH_FOLDER: YOUR_DRAFTS_FOLDER
 EMAIL_ATTACHMENT_BASE_PATH: YOUR_DIRECTORY_FOR_EMAIL_ATTACHMENTS
 

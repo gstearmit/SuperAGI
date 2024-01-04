@@ -1,15 +1,15 @@
 import pytest
 from unittest.mock import patch, MagicMock, ANY, PropertyMock
-from superagi.models.agent import Agent
-from superagi.models.agent_execution import AgentExecution
-from superagi.jobs.scheduling_executor import ScheduledAgentExecutor
+from chatdevagi.models.agent import Agent
+from chatdevagi.models.agent_execution import AgentExecution
+from chatdevagi.jobs.scheduling_executor import ScheduledAgentExecutor
 from datetime import datetime
 
-@patch('superagi.worker.execute_agent.delay')
-@patch('superagi.jobs.scheduling_executor.Session')
-@patch('superagi.models.agent.Agent')
-@patch('superagi.jobs.scheduling_executor.AgentWorkflow')
-@patch('superagi.models.agent_execution.AgentExecution')
+@patch('chatdevagi.worker.execute_agent.delay')
+@patch('chatdevagi.jobs.scheduling_executor.Session')
+@patch('chatdevagi.models.agent.Agent')
+@patch('chatdevagi.jobs.scheduling_executor.AgentWorkflow')
+@patch('chatdevagi.models.agent_execution.AgentExecution')
 def test_execute_scheduled_agent(AgentExecutionMock, AgentWorkflowMock, AgentMock, SessionMock, execute_agent_delay_mock):
     # Arrange
     agent_id = 1

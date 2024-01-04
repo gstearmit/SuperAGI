@@ -1,6 +1,6 @@
 import pytest
 
-from superagi.types.model_source_types import ModelSourceType
+from chatdevagi.types.model_source_types import ModelSourceType
 
 
 def test_get_model_source_type():

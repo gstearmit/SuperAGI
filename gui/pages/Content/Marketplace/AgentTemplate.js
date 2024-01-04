@@ -27,7 +27,7 @@ export default function AgentTemplate({template, env}) {
     loadingTextEffect('Loading Template Details', setLoadingText, 500);
     if (window.location.href.toLowerCase().includes('marketplace')) {
       setInstalled('Sign in to install')
-      axios.get(`https://app.superagi.com/api/agent_templates/marketplace/template_details/${template.id}`)
+      axios.get(`https://app.chatdevagi.com/api/agent_templates/marketplace/template_details/${template.id}`)
         .then((response) => {
           const data = response.data || [];
           setValues(data)
@@ -64,7 +64,7 @@ export default function AgentTemplate({template, env}) {
     if (window.location.href.toLowerCase().includes('marketplace')) {
       localStorage.setItem('agent_to_install', template.id);
       if (env === 'PROD') {
-        window.open(`https://app.superagi.com/`, '_self');
+        window.open(`https://app.chatdevagi.com/`, '_self');
       } else {
         window.location.href = '/';
       }
@@ -102,7 +102,7 @@ export default function AgentTemplate({template, env}) {
           <div className="col-3" style={{maxHeight: '84vh', overflowY: 'auto', padding: '0'}}>
             <div className={styles2.left_container}>
               <span className={styles2.top_heading}>{template.name}</span>
-              <span style={{fontSize: '12px', marginTop: '15px',}} className={styles.tool_publisher}>By SuperAGI <Image
+              <span style={{fontSize: '12px', marginTop: '15px',}} className={styles.tool_publisher}>By chatdevagi <Image
                 width={14} height={14} src="/images/is_verified.svg" alt="is_verified"/>&nbsp;{'\u00B7'}&nbsp;<Image
                 width={14} height={14} src="/images/upload_icon.svg" alt="upload-icon"/></span>
               {isInstalled || (template && template.is_installed) ? (

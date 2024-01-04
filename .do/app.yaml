@@ -10,11 +10,11 @@ databases:
 ingress:
   rules:
     - component:
-        name: superagi-backend
+        name: chatdevagi-backend
       match:
         path:
           prefix: /api
-name: superagi
+name: chatdevagi
 services:
   - dockerfile_path: DockerfileRedis
     github: 
@@ -26,12 +26,12 @@ services:
     instance_count: 1
     instance_size_slug: basic-xs
     source_dir: /
-    name: superagi-redis
+    name: chatdevagi-redis
   - dockerfile_path: Dockerfile
     envs:
       - key: REDIS_URL
         scope: RUN_TIME
-        value: superagi-redis:6379
+        value: chatdevagi-redis:6379
       - key: DB_URL
         scope: RUN_TIME
         value: ${super-agi-main.DATABASE_URL}
@@ -44,7 +44,7 @@ services:
     instance_size_slug: basic-xs
     run_command: /app/entrypoint.sh
     source_dir: /
-    name: superagi-backend
+    name: chatdevagi-backend
   - dockerfile_path: ./gui/DockerfileProd
     github:
       branch: main
@@ -54,23 +54,23 @@ services:
     instance_count: 1
     instance_size_slug: basic-xs
     source_dir: ./gui
-    name: superagi-gui
+    name: chatdevagi-gui
 workers:
   - dockerfile_path: Dockerfile
     envs:
       - key: REDIS_URL
         scope: RUN_TIME
-        value: superagi-redis:6379
+        value: chatdevagi-redis:6379
       - key: DB_URL
         scope: RUN_TIME
         value: ${super-agi-main.DATABASE_URL}
     github:
       branch: main
       deploy_on_push: true
-      repo: ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git 
+      repo: ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git
     instance_count: 1
     instance_size_slug: basic-xs
-    run_command: celery -A superagi.worker worker --beat --loglevel=info
+    run_command: celery -A chatdevagi.worker worker --beat --loglevel=info
     source_dir: /
-    name: superagi-celery
+    name: chatdevagi-celery
   

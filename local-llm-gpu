@@ -88,11 +88,11 @@ services:
   super__postgres:
     image: "docker.io/library/postgres:latest"
     environment:
-      - POSTGRES_USER=superagi
+      - POSTGRES_USER=chatdevagi
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=super_agi_main
     volumes:
-      - superagi_postgres_data:/var/lib/postgresql/data/
+      - chatdevagi_postgres_data:/var/lib/postgresql/data/
     networks:
       - super_network
     ports:
@@ -103,4 +103,4 @@ networks:
     driver: bridge
 
 volumes:
-  superagi_postgres_data:
+  chatdevagi_postgres_data:

@@ -1,9 +1,9 @@
 import pytest
 from sqlalchemy.exc import SQLAlchemyError
-from superagi.models.events import Event
+from chatdevagi.models.events import Event
 from unittest.mock import MagicMock
 
-from superagi.apm.event_handler import EventHandler
+from chatdevagi.apm.event_handler import EventHandler
 
 @pytest.fixture
 def mock_session():

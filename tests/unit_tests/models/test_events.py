@@ -2,7 +2,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from superagi.models.events import Event
+from chatdevagi.models.events import Event
 
 @pytest.fixture
 def mock_session():

@@ -1,12 +1,12 @@
 import pytest
 from unittest.mock import patch, Mock
 
-from superagi.agent.agent_message_builder import AgentLlmMessageBuilder
-from superagi.models.agent_execution_feed import AgentExecutionFeed
+from chatdevagi.agent.agent_message_builder import AgentLlmMessageBuilder
+from chatdevagi.models.agent_execution_feed import AgentExecutionFeed
 
 
-@patch('superagi.helper.token_counter.TokenCounter.token_limit')
-@patch('superagi.config.config.get_config')
+@patch('chatdevagi.helper.token_counter.TokenCounter.token_limit')
+@patch('chatdevagi.config.config.get_config')
 def test_build_agent_messages(mock_get_config, mock_token_limit):
     mock_session = Mock()
     llm = Mock()
@@ -41,12 +41,12 @@ def test_build_agent_messages(mock_get_config, mock_token_limit):
         assert feed_obj.feed == messages[i]["content"]
         assert feed_obj.role == messages[i]["role"]
 
-@patch('superagi.models.agent_execution_config.AgentExecutionConfiguration.fetch_value')
-@patch('superagi.models.agent_execution_config.AgentExecutionConfiguration.add_or_update_agent_execution_config')
-@patch('superagi.agent.agent_message_builder.AgentLlmMessageBuilder._build_prompt_for_recursive_ltm_summary_using_previous_ltm_summary')
-@patch('superagi.agent.agent_message_builder.AgentLlmMessageBuilder._build_prompt_for_ltm_summary')
-@patch('superagi.helper.token_counter.TokenCounter.count_text_tokens')
-@patch('superagi.helper.token_counter.TokenCounter.token_limit')
+@patch('chatdevagi.models.agent_execution_config.AgentExecutionConfiguration.fetch_value')
+@patch('chatdevagi.models.agent_execution_config.AgentExecutionConfiguration.add_or_update_agent_execution_config')
+@patch('chatdevagi.agent.agent_message_builder.AgentLlmMessageBuilder._build_prompt_for_recursive_ltm_summary_using_previous_ltm_summary')
+@patch('chatdevagi.agent.agent_message_builder.AgentLlmMessageBuilder._build_prompt_for_ltm_summary')
+@patch('chatdevagi.helper.token_counter.TokenCounter.count_text_tokens')
+@patch('chatdevagi.helper.token_counter.TokenCounter.token_limit')
 def test_build_ltm_summary(mock_token_limit, mock_count_text_tokens, mock_build_prompt_for_ltm_summary,
                            mock_build_prompt_for_recursive_ltm_summary, mock_add_or_update_agent_execution_config,
                            mock_fetch_value):
@@ -77,7 +77,7 @@ def test_build_ltm_summary(mock_token_limit, mock_count_text_tokens, mock_build_
     llm.chat_completion.assert_called_once_with([{"role": "system", "content": "You are GPT Prompt writer"},
                                                  {"role": "assistant", "content": "ltm_summary_prompt"}])
 
-@patch('superagi.helper.prompt_reader.PromptReader.read_agent_prompt')
+@patch('chatdevagi.helper.prompt_reader.PromptReader.read_agent_prompt')
 def test_build_prompt_for_ltm_summary(mock_read_agent_prompt):
     mock_session = Mock()
     llm = Mock()
@@ -98,7 +98,7 @@ def test_build_prompt_for_ltm_summary(mock_read_agent_prompt):
     assert "400" in prompt
 
 
-@patch('superagi.helper.prompt_reader.PromptReader.read_agent_prompt')
+@patch('chatdevagi.helper.prompt_reader.PromptReader.read_agent_prompt')
 def test_build_prompt_for_recursive_ltm_summary_using_previous_ltm_summary(mock_read_agent_prompt):
     mock_session = Mock()
     llm = Mock()

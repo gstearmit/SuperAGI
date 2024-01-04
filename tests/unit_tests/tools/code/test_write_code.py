@@ -2,9 +2,9 @@ from unittest.mock import Mock
 
 import pytest
 
-from superagi.resource_manager.file_manager import FileManager
-from superagi.tools.code.write_code import CodingTool
-from superagi.tools.tool_response_query_manager import ToolResponseQueryManager
+from chatdevagi.resource_manager.file_manager import FileManager
+from chatdevagi.tools.code.write_code import CodingTool
+from chatdevagi.tools.tool_response_query_manager import ToolResponseQueryManager
 from unittest.mock import MagicMock
 
 

@@ -1,8 +1,8 @@
 import pytest
 import numpy as np
 
-from superagi.vector_store import qdrant
-from superagi.vector_store.embedding.openai import OpenAiEmbedding
+from chatdevagi.vector_store import qdrant
+from chatdevagi.vector_store.embedding.openai import OpenAiEmbedding
 from qdrant_client.models import Distance, VectorParams
 from qdrant_client import QdrantClient
 

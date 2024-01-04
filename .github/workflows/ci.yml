@@ -76,10 +76,10 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           submodules: true
 
-      - name: Configure git user SuperAGI-Bot
+      - name: Configure git user chatdevagi-Bot
         run: |
-          git config --global user.name "SuperAGI-Bot"
-          git config --global user.email "github-bot@superagi.com"
+          git config --global user.name "chatdevagi-Bot"
+          git config --global user.email "github-bot@chatdevagi.com"
           
       - name: Set up Python 3.9
         uses: actions/setup-python@v3
@@ -102,7 +102,7 @@ jobs:
           
       - name: Test with pytest
         run: |
-          pytest --cov=superagi --cov-branch --cov-report term-missing --cov-report xml \
+          pytest --cov=chatdevagi --cov-branch --cov-report term-missing --cov-report xml \
             tests/unit_tests -s
         env:
           CI: true

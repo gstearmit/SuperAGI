@@ -1,7 +1,7 @@
 from unittest.mock import create_autospec
 
 from sqlalchemy.orm import Session
-from superagi.models.agent_schedule import AgentSchedule
+from chatdevagi.models.agent_schedule import AgentSchedule
 
 def test_find_by_agent_id():
     # Create a mock session

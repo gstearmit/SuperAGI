@@ -2,8 +2,8 @@ from unittest.mock import Mock, patch
 
 import requests
 
-from superagi.models.agent_template import AgentTemplate
-from superagi.models.workflows.agent_workflow import AgentWorkflow
+from chatdevagi.models.agent_template import AgentTemplate
+from chatdevagi.models.workflows.agent_workflow import AgentWorkflow
 
 
 def test_to_dict():
@@ -56,7 +56,7 @@ def test_eval_agent_config():
     assert AgentTemplate.eval_agent_config('goal', '["goal1", "goal2"]') == ["goal1", "goal2"]
 
 
-@patch('superagi.models.agent_template.AgentTemplate.fetch_marketplace_detail')
+@patch('chatdevagi.models.agent_template.AgentTemplate.fetch_marketplace_detail')
 @patch('sqlalchemy.orm.Session')
 def test_clone_agent_template_from_marketplace(mock_session, mock_fetch_marketplace_detail):
     mock_fetch_marketplace_detail.return_value = {

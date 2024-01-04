@@ -4,7 +4,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from main import app
-from superagi.models.agent_schedule import AgentSchedule
+from chatdevagi.models.agent_schedule import AgentSchedule
 from datetime import datetime
 
 client = TestClient(app)
@@ -26,7 +26,7 @@ def mock_schedule():
 
 # An agent is already scheduled and is simply being updated, we assert for the updated values here
 def test_schedule_existing_agent_already_scheduled(mock_patch_schedule_input, mock_schedule):
-    with patch('superagi.controllers.agent_execution.db') as mock_db:
+    with patch('chatdevagi.controllers.agent_execution.db') as mock_db:
         mock_db.session.query.return_value.filter.return_value.first.return_value = mock_schedule 
 
         response = client.post("agentexecutions/schedule", json=mock_patch_schedule_input)
@@ -39,7 +39,7 @@ def test_schedule_existing_agent_already_scheduled(mock_patch_schedule_input, mo
 
 # The agent isn't scheduled yet and we are scheduling it, we simply assert for a 201 status code and non-null schedule id.
 def test_schedule_existing_agent_new_schedule(mock_patch_schedule_input, mock_schedule):
-    with patch('superagi.controllers.agent_execution.db') as mock_db:
+    with patch('chatdevagi.controllers.agent_execution.db') as mock_db:
         mock_db.session.query.return_value.filter.return_value.first.return_value = mock_schedule
 
         response = client.post("agentexecutions/schedule", json=mock_patch_schedule_input)

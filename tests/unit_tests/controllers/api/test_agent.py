@@ -2,14 +2,14 @@ import pytest
 from fastapi.testclient import TestClient
 from fastapi import HTTPException
 
-import superagi.config.config
+import chatdevagi.config.config
 from unittest.mock import MagicMock, patch,Mock
 from main import app
 from unittest.mock import patch,create_autospec
 from sqlalchemy.orm import Session
-from superagi.controllers.api.agent import ExecutionStateChangeConfigIn,AgentConfigUpdateExtInput
-from superagi.models.agent import Agent
-from superagi.models.project import Project
+from chatdevagi.controllers.api.agent import ExecutionStateChangeConfigIn,AgentConfigUpdateExtInput
+from chatdevagi.models.agent import Agent
+from chatdevagi.models.project import Project
 
 client = TestClient(app)
 
@@ -85,10 +85,10 @@ def mock_update_agent_config():
 # Define test cases
 
 def test_update_agent_not_found(mock_update_agent_config,mock_api_key_get):
-    with patch('superagi.helper.auth.get_organisation_from_api_key') as mock_get_user_org, \
-            patch('superagi.helper.auth.validate_api_key') as mock_validate_api_key, \
-                patch('superagi.helper.auth.db') as mock_auth_db, \
-                    patch('superagi.controllers.api.agent.db') as db_mock:
+    with patch('chatdevagi.helper.auth.get_organisation_from_api_key') as mock_get_user_org, \
+            patch('chatdevagi.helper.auth.validate_api_key') as mock_validate_api_key, \
+                patch('chatdevagi.helper.auth.db') as mock_auth_db, \
+                    patch('chatdevagi.controllers.api.agent.db') as db_mock:
 
         # Mock the session
         mock_session = create_autospec(Session)
@@ -104,11 +104,11 @@ def test_update_agent_not_found(mock_update_agent_config,mock_api_key_get):
 
 
 def test_get_run_resources_no_run_ids(mock_run_id_config_empty,mock_api_key_get):
-    with patch('superagi.helper.auth.get_organisation_from_api_key') as mock_get_user_org, \
-            patch('superagi.helper.auth.validate_api_key') as mock_validate_api_key, \
-                patch('superagi.helper.auth.db') as mock_auth_db, \
-                    patch('superagi.controllers.api.agent.db') as db_mock, \
-                        patch('superagi.controllers.api.agent.get_config', return_value="S3") as mock_get_config:
+    with patch('chatdevagi.helper.auth.get_organisation_from_api_key') as mock_get_user_org, \
+            patch('chatdevagi.helper.auth.validate_api_key') as mock_validate_api_key, \
+                patch('chatdevagi.helper.auth.db') as mock_auth_db, \
+                    patch('chatdevagi.controllers.api.agent.db') as db_mock, \
+                        patch('chatdevagi.controllers.api.agent.get_config', return_value="S3") as mock_get_config:
 
         # Mock the session
         mock_session = create_autospec(Session)
@@ -123,11 +123,11 @@ def test_get_run_resources_no_run_ids(mock_run_id_config_empty,mock_api_key_get)
         assert response.text == '{"detail":"No execution_id found"}'
 
 def test_get_run_resources_invalid_run_ids(mock_run_id_config_invalid,mock_api_key_get):
-    with patch('superagi.helper.auth.get_organisation_from_api_key') as mock_get_user_org, \
-            patch('superagi.helper.auth.validate_api_key') as mock_validate_api_key, \
-                patch('superagi.helper.auth.db') as mock_auth_db, \
-                    patch('superagi.controllers.api.agent.db') as db_mock, \
-                        patch('superagi.controllers.api.agent.get_config', return_value="S3") as mock_get_config:
+    with patch('chatdevagi.helper.auth.get_organisation_from_api_key') as mock_get_user_org, \
+            patch('chatdevagi.helper.auth.validate_api_key') as mock_validate_api_key, \
+                patch('chatdevagi.helper.auth.db') as mock_auth_db, \
+                    patch('chatdevagi.controllers.api.agent.db') as db_mock, \
+                        patch('chatdevagi.controllers.api.agent.get_config', return_value="S3") as mock_get_config:
 
         # Mock the session
         mock_session = create_autospec(Session)
@@ -142,10 +142,10 @@ def test_get_run_resources_invalid_run_ids(mock_run_id_config_invalid,mock_api_k
         assert response.text == '{"detail":"One or more run id(s) not found"}'
 
 def test_resume_agent_runs_agent_not_found(mock_execution_state_change_input,mock_api_key_get):
-    with patch('superagi.helper.auth.get_organisation_from_api_key') as mock_get_user_org, \
-            patch('superagi.helper.auth.validate_api_key') as mock_validate_api_key, \
-                patch('superagi.helper.auth.db') as mock_auth_db, \
-                    patch('superagi.controllers.api.agent.db') as db_mock:
+    with patch('chatdevagi.helper.auth.get_organisation_from_api_key') as mock_get_user_org, \
+            patch('chatdevagi.helper.auth.validate_api_key') as mock_validate_api_key, \
+                patch('chatdevagi.helper.auth.db') as mock_auth_db, \
+                    patch('chatdevagi.controllers.api.agent.db') as db_mock:
 
         # Mock the session
         mock_session = create_autospec(Session)
@@ -161,10 +161,10 @@ def test_resume_agent_runs_agent_not_found(mock_execution_state_change_input,moc
 
 
 def test_pause_agent_runs_agent_not_found(mock_execution_state_change_input,mock_api_key_get):
-    with patch('superagi.helper.auth.get_organisation_from_api_key') as mock_get_user_org, \
-            patch('superagi.helper.auth.validate_api_key') as mock_validate_api_key, \
-                patch('superagi.helper.auth.db') as mock_auth_db, \
-                    patch('superagi.controllers.api.agent.db') as db_mock:
+    with patch('chatdevagi.helper.auth.get_organisation_from_api_key') as mock_get_user_org, \
+            patch('chatdevagi.helper.auth.validate_api_key') as mock_validate_api_key, \
+                patch('chatdevagi.helper.auth.db') as mock_auth_db, \
+                    patch('chatdevagi.controllers.api.agent.db') as db_mock:
 
         # Mock the session
         mock_session = create_autospec(Session)
@@ -179,10 +179,10 @@ def test_pause_agent_runs_agent_not_found(mock_execution_state_change_input,mock
         assert response.text == '{"detail":"Agent not found"}'
 
 def test_create_run_agent_not_found(mock_agent_execution,mock_api_key_get):
-    with patch('superagi.helper.auth.get_organisation_from_api_key') as mock_get_user_org, \
-            patch('superagi.helper.auth.validate_api_key') as mock_validate_api_key, \
-                patch('superagi.helper.auth.db') as mock_auth_db, \
-                    patch('superagi.controllers.api.agent.db') as db_mock:
+    with patch('chatdevagi.helper.auth.get_organisation_from_api_key') as mock_get_user_org, \
+            patch('chatdevagi.helper.auth.validate_api_key') as mock_validate_api_key, \
+                patch('chatdevagi.helper.auth.db') as mock_auth_db, \
+                    patch('chatdevagi.controllers.api.agent.db') as db_mock:
 
         # Mock the session
         mock_session = create_autospec(Session)
@@ -197,10 +197,10 @@ def test_create_run_agent_not_found(mock_agent_execution,mock_api_key_get):
         assert response.text == '{"detail":"Agent not found"}'
 
 def test_create_run_project_not_matching_org(mock_agent_execution, mock_api_key_get):
-    with patch('superagi.helper.auth.get_organisation_from_api_key') as mock_get_user_org, \
-            patch('superagi.helper.auth.validate_api_key') as mock_validate_api_key, \
-            patch('superagi.helper.auth.db') as mock_auth_db, \
-            patch('superagi.controllers.api.agent.db') as db_mock:
+    with patch('chatdevagi.helper.auth.get_organisation_from_api_key') as mock_get_user_org, \
+            patch('chatdevagi.helper.auth.validate_api_key') as mock_validate_api_key, \
+            patch('chatdevagi.helper.auth.db') as mock_auth_db, \
+            patch('chatdevagi.controllers.api.agent.db') as db_mock:
 
         # Mock the session and configure query methods to return agent and project
         mock_session = create_autospec(Session)

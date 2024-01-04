@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch, call
 
 from distlib.util import AND
 
-from superagi.models.agent_execution_config import AgentExecutionConfiguration
+from chatdevagi.models.agent_execution_config import AgentExecutionConfiguration
 
 
 class TestAgentExecutionConfiguration(unittest.TestCase):

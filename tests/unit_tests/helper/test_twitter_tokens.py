@@ -3,9 +3,9 @@ from unittest.mock import patch, Mock, MagicMock
 from typing import NamedTuple
 import ast
 from sqlalchemy.orm import Session
-from superagi.helper.twitter_tokens import Creds, TwitterTokens
-from superagi.models.toolkit import Toolkit
-from superagi.models.oauth_tokens import OauthTokens
+from chatdevagi.helper.twitter_tokens import Creds, TwitterTokens
+from chatdevagi.models.toolkit import Toolkit
+from chatdevagi.models.oauth_tokens import OauthTokens
 import time
 import http.client
 
@@ -36,8 +36,8 @@ class TestTwitterTokens(unittest.TestCase):
     
     @patch.object(time, 'time', return_value=1234567890)
     @patch.object(http.client, 'HTTPSConnection')
-    @patch('superagi.helper.twitter_tokens.TwitterTokens.gen_nonce', return_value=123456)  # Replace '__main__' with actual module name
-    @patch('superagi.helper.twitter_tokens.TwitterTokens.percent_encode', return_value="encoded")  # Replace '__main__' with actual module name
+    @patch('chatdevagi.helper.twitter_tokens.TwitterTokens.gen_nonce', return_value=123456)  # Replace '__main__' with actual module name
+    @patch('chatdevagi.helper.twitter_tokens.TwitterTokens.percent_encode', return_value="encoded")  # Replace '__main__' with actual module name
     def test_get_request_token(self, mock_percent_encode, mock_gen_nonce, mock_https_connection, mock_time):
         response_mock = Mock()
         response_mock.read.return_value = b'oauth_token=test_token&oauth_token_secret=test_secret'

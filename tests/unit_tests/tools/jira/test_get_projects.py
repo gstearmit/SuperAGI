@@ -1,9 +1,9 @@
 import pytest
 from unittest.mock import patch, Mock
 
-from superagi.tools.jira.get_projects import GetProjectsTool
+from chatdevagi.tools.jira.get_projects import GetProjectsTool
 
-@patch("superagi.tools.jira.get_projects.JiraTool.build_jira_instance")
+@patch("chatdevagi.tools.jira.get_projects.JiraTool.build_jira_instance")
 def test_get_projects_tool(mock_build_jira_instance):
     # Arrange
     mock_jira_instance = Mock()

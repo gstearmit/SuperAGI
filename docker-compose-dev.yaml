@@ -45,11 +45,11 @@ services:
   super__postgres:
     image: "docker.io/library/postgres:15"
     environment:
-      - POSTGRES_USER=superagi
+      - POSTGRES_USER=chatdevagi
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=super_agi_main
     volumes:
-      - superagi_postgres_data:/var/lib/postgresql/data/
+      - chatdevagi_postgres_data:/var/lib/postgresql/data/
     networks:
       - super_network
 #    uncomment to expose postgres port to host
@@ -72,5 +72,5 @@ networks:
   super_network:
     driver: bridge
 volumes:
-  superagi_postgres_data:
+  chatdevagi_postgres_data:
   redis_data:

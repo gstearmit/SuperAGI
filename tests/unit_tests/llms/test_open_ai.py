@@ -1,9 +1,9 @@
 import pytest
 from unittest.mock import MagicMock, patch
-from superagi.llms.openai import OpenAi
+from chatdevagi.llms.openai import OpenAi
 
 
-@patch('superagi.llms.openai.openai')
+@patch('chatdevagi.llms.openai.openai')
 def test_chat_completion(mock_openai):
     # Arrange
     model = 'gpt-4'

@@ -1,8 +1,8 @@
 import json
 from unittest.mock import Mock, patch
 import pytest
-from superagi.helper.webhook_manager import WebHookManager
-from superagi.models.webhooks import Webhooks
+from chatdevagi.helper.webhook_manager import WebHookManager
+from chatdevagi.models.webhooks import Webhooks
 
 @pytest.fixture
 def mock_session():
@@ -51,10 +51,10 @@ def test_agent_status_change_callback(
 
     # Patch required functions/methods
     with patch(
-        'superagi.controllers.agent_execution_config.AgentExecution.get_agent_execution_from_id',
+        'chatdevagi.controllers.agent_execution_config.AgentExecution.get_agent_execution_from_id',
         return_value=mock_agent_execution_instance
     ), patch(
-        'superagi.models.agent.Agent.get_agent_from_id',
+        'chatdevagi.models.agent.Agent.get_agent_from_id',
         return_value=mock_agent_instance
     ), patch(
         'requests.post',

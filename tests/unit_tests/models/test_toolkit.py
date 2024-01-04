@@ -2,9 +2,9 @@ from unittest.mock import MagicMock, patch, call,create_autospec,Mock
 
 import pytest
 
-from superagi.models.organisation import Organisation
-from superagi.models.toolkit import Toolkit
-from superagi.models.tool import Tool
+from chatdevagi.models.organisation import Organisation
+from chatdevagi.models.toolkit import Toolkit
+from chatdevagi.models.tool import Tool
 from sqlalchemy.orm import Session
 
 @pytest.fixture
@@ -28,7 +28,7 @@ def mock_session(mock_tool):
     return session
 
 # marketplace_url = "http://localhost:8001"
-marketplace_url = "https://app.superagi.com/api"
+marketplace_url = "https://app.chatdevagi.com/api"
 
 
 def test_add_or_update_existing_toolkit(mock_session):

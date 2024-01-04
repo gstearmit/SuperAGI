@@ -4,9 +4,9 @@ import pytest
 from fastapi.testclient import TestClient
 
 from main import app
-from superagi.models.agent_schedule import AgentSchedule
-from superagi.models.agent_config import AgentConfiguration
-from superagi.models.agent import Agent
+from chatdevagi.models.agent_schedule import AgentSchedule
+from chatdevagi.models.agent_config import AgentConfiguration
+from chatdevagi.models.agent import Agent
 from datetime import datetime, timedelta
 from pytz import timezone
 
@@ -45,7 +45,7 @@ def mock_schedule_get():
 
 '''Test for Stopping Agent Scheduling'''
 def test_stop_schedule_success(mock_schedule):
-    with patch('superagi.controllers.agent.db') as mock_db:
+    with patch('chatdevagi.controllers.agent.db') as mock_db:
         # Set up the database query result
         mock_db.session.query.return_value.filter.return_value.first.return_value = mock_schedule 
 
@@ -60,7 +60,7 @@ def test_stop_schedule_success(mock_schedule):
 
 
 def test_stop_schedule_not_found():
-    with patch('superagi.controllers.agent.db') as mock_db:
+    with patch('chatdevagi.controllers.agent.db') as mock_db:
         # Set up the database query result
         mock_db.session.query.return_value.filter.return_value.first.return_value = None
 
@@ -74,7 +74,7 @@ def test_stop_schedule_not_found():
 
 '''Test for editing agent schedule'''
 def test_edit_schedule_success(mock_schedule, mock_patch_schedule_input):
-    with patch('superagi.controllers.agent.db') as mock_db:
+    with patch('chatdevagi.controllers.agent.db') as mock_db:
         # Set up the database query result
         mock_db.session.query.return_value.filter.return_value.first.return_value = mock_schedule
 
@@ -94,7 +94,7 @@ def test_edit_schedule_success(mock_schedule, mock_patch_schedule_input):
 
 
 def test_edit_schedule_not_found(mock_patch_schedule_input):
-    with patch('superagi.controllers.agent.db') as mock_db:
+    with patch('chatdevagi.controllers.agent.db') as mock_db:
         # Set up the database query result
         mock_db.session.query.return_value.filter.return_value.first.return_value = None
 
@@ -107,7 +107,7 @@ def test_edit_schedule_not_found(mock_patch_schedule_input):
 
 '''Test for getting agent schedule'''
 def test_get_schedule_data_success(mock_schedule_get, mock_agent_config):
-    with patch('superagi.controllers.agent.db') as mock_db:
+    with patch('chatdevagi.controllers.agent.db') as mock_db:
         mock_db.session.query.return_value.filter.return_value.first.side_effect = [mock_schedule_get, mock_agent_config]
         response = client.get("agents/get/schedule_data/1")
         assert response.status_code == 200
@@ -126,7 +126,7 @@ def test_get_schedule_data_success(mock_schedule_get, mock_agent_config):
 
 
 def test_get_schedule_data_not_found():
-    with patch('superagi.controllers.agent.db') as mock_db:
+    with patch('chatdevagi.controllers.agent.db') as mock_db:
         # Set up the database query result
         mock_db.session.query.return_value.filter.return_value.first.return_value = None
 
@@ -180,12 +180,12 @@ def mock_agent():
 
 def test_create_and_schedule_agent_success(mock_agent_config_schedule, mock_agent, mock_schedule):
     
-    with patch('superagi.models.agent.Agent') as AgentMock,\
-         patch('superagi.controllers.agent.Project') as ProjectMock,\
-         patch('superagi.controllers.agent.Tool') as ToolMock,\
-         patch('superagi.controllers.agent.Toolkit') as ToolkitMock,\
-         patch('superagi.controllers.agent.AgentSchedule') as AgentScheduleMock,\
-         patch('superagi.controllers.agent.db') as db_mock:
+    with patch('chatdevagi.models.agent.Agent') as AgentMock,\
+         patch('chatdevagi.controllers.agent.Project') as ProjectMock,\
+         patch('chatdevagi.controllers.agent.Tool') as ToolMock,\
+         patch('chatdevagi.controllers.agent.Toolkit') as ToolkitMock,\
+         patch('chatdevagi.controllers.agent.AgentSchedule') as AgentScheduleMock,\
+         patch('chatdevagi.controllers.agent.db') as db_mock:
 
         project_mock = Mock()
         ProjectMock.get.return_value = project_mock
@@ -220,7 +220,7 @@ def test_create_and_schedule_agent_success(mock_agent_config_schedule, mock_agen
 
 
 def test_create_and_schedule_agent_project_not_found(mock_agent_config_schedule):
-    with patch('superagi.controllers.agent.db') as mock_db:
+    with patch('chatdevagi.controllers.agent.db') as mock_db:
         # Set up the database query result
         mock_db.session.query.return_value.get.return_value = None
 

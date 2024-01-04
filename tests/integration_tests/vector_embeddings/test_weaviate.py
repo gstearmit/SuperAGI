@@ -1,6 +1,6 @@
 import unittest
-from superagi.vector_embeddings.base import VectorEmbeddings
-from superagi.vector_embeddings.weaviate import Weaviate
+from chatdevagi.vector_embeddings.base import VectorEmbeddings
+from chatdevagi.vector_embeddings.weaviate import Weaviate
 
 class TestWeaviate(unittest.TestCase):
 

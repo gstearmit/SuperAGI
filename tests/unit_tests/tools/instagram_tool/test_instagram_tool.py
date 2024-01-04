@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import Mock, patch
-from superagi.tools.instagram_tool.instagram import InstagramTool # Replace 'your_file' with actual file name that contains this class
+from chatdevagi.tools.instagram_tool.instagram import InstagramTool # Replace 'your_file' with actual file name that contains this class
 import requests
 
 class TestInstagramTool(unittest.TestCase):
@@ -22,7 +22,7 @@ class TestInstagramTool(unittest.TestCase):
 
         assert actual_caption == "Test%20Caption"  # spaces are replaced with %20.
 
-    @patch("superagi.helper.resource_helper.ResourceHelper")
+    @patch("chatdevagi.helper.resource_helper.ResourceHelper")
     def test_get_file_path(self, mock_resource_helper):
         mock_session, mock_file_name, mock_agent_id, mock_agent_execution_id = Mock(), Mock(), Mock(), Mock()
         expected_path = "/test/path"
@@ -35,8 +35,8 @@ class TestInstagramTool(unittest.TestCase):
         except:
             assert actual_path != expected_path
 
-    @patch("superagi.helper.s3_helper.S3Helper")
-    @patch("superagi.config.config.get_config")
+    @patch("chatdevagi.helper.s3_helper.S3Helper")
+    @patch("chatdevagi.config.config.get_config")
     def test_get_img_public_url(self, mock_get_config, mock_s3_helper):
         bucket_name = "test_bucket"
         mock_get_config.return_value = bucket_name

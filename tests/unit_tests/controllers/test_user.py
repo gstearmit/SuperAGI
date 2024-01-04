@@ -4,7 +4,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from main import app
-from superagi.models.user import User
+from chatdevagi.models.user import User
 
 client = TestClient(app)
 
@@ -25,7 +25,7 @@ def authenticated_user():
 
 # Test case for updating first login source when it's not set
 def test_update_first_login_source(authenticated_user):
-    with patch('superagi.helper.auth.db') as mock_auth_db:
+    with patch('chatdevagi.helper.auth.db') as mock_auth_db:
         source = "github"  # Specify the source you want to set
 
         mock_auth_db.session.query.return_value.filter.return_value.first.return_value = authenticated_user

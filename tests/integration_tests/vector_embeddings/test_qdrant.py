@@ -1,6 +1,6 @@
 import unittest
 
-from superagi.vector_embeddings.qdrant import Qdrant
+from chatdevagi.vector_embeddings.qdrant import Qdrant
 
 class TestQdrant(unittest.TestCase):
 

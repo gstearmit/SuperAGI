@@ -1,5 +1,5 @@
 import unittest
-from superagi.vector_embeddings.pinecone import Pinecone  
+from chatdevagi.vector_embeddings.pinecone import Pinecone
 
 
 class TestPinecone(unittest.TestCase):

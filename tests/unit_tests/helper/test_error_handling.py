@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import Mock, patch
-from superagi.models.agent_execution import AgentExecution
-from superagi.models.agent_execution_feed import AgentExecutionFeed
-from superagi.helper.error_handler import ErrorHandler
+from chatdevagi.models.agent_execution import AgentExecution
+from chatdevagi.models.agent_execution_feed import AgentExecutionFeed
+from chatdevagi.helper.error_handler import ErrorHandler
 
 def test_handle_error():
     session = Mock()

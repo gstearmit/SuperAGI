@@ -1,6 +1,6 @@
 import pytest
-from superagi.models.events import Event
-from superagi.apm.analytics_helper import AnalyticsHelper
+from chatdevagi.models.events import Event
+from chatdevagi.apm.analytics_helper import AnalyticsHelper
 from unittest.mock import MagicMock
 
 @pytest.fixture

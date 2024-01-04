@@ -3,10 +3,10 @@ from unittest.mock import patch, Mock
 from unittest import TestCase
 import requests
 import json
-from superagi.llms.hugging_face import HuggingFace
-from superagi.config.config import get_config
-from superagi.llms.utils.huggingface_utils.tasks import Tasks, TaskParameters
-from superagi.llms.utils.huggingface_utils.public_endpoints import ACCOUNT_VERIFICATION_URL
+from chatdevagi.llms.hugging_face import HuggingFace
+from chatdevagi.config.config import get_config
+from chatdevagi.llms.utils.huggingface_utils.tasks import Tasks, TaskParameters
+from chatdevagi.llms.utils.huggingface_utils.public_endpoints import ACCOUNT_VERIFICATION_URL
 
 
 class TestHuggingFace(TestCase):

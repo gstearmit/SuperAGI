@@ -1,6 +1,6 @@
 from unittest.mock import create_autospec
 from sqlalchemy.orm import Session
-from superagi.models.agent import Agent
+from chatdevagi.models.agent import Agent
 from unittest.mock import patch
   
 def test_get_agent_from_id():

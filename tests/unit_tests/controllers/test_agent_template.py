@@ -1,14 +1,14 @@
 from unittest.mock import patch, MagicMock
-from superagi.models.agent_template import AgentTemplate
-from superagi.models.agent_template_config import AgentTemplateConfig
+from chatdevagi.models.agent_template import AgentTemplate
+from chatdevagi.models.agent_template_config import AgentTemplateConfig
 from fastapi.testclient import TestClient
 from main import app
 
 client = TestClient(app)
 
-@patch('superagi.controllers.agent_template.db')
-@patch('superagi.helper.auth.db')
-@patch('superagi.helper.auth.get_user_organisation')
+@patch('chatdevagi.controllers.agent_template.db')
+@patch('chatdevagi.helper.auth.db')
+@patch('chatdevagi.helper.auth.get_user_organisation')
 def test_edit_agent_template_success(mock_get_user_org, mock_auth_db, mock_db):
     # Create a mock agent template
     mock_agent_template = AgentTemplate(id=1, name="Test Agent Template", description="Test Description")
@@ -63,9 +63,9 @@ def test_edit_agent_template_success(mock_get_user_org, mock_auth_db, mock_db):
     session_mock.flush.assert_called()
 
 
-@patch('superagi.controllers.agent_template.db')
-@patch('superagi.helper.auth.db')
-@patch('superagi.helper.auth.get_user_organisation')
+@patch('chatdevagi.controllers.agent_template.db')
+@patch('chatdevagi.helper.auth.db')
+@patch('chatdevagi.helper.auth.get_user_organisation')
 def test_edit_agent_template_failure(mock_get_user_org, mock_auth_db, mock_db):
     # Setup: The user organisation exists, but the agent template does not exist.
     mock_get_user_org.return_value = MagicMock(id=1)
@@ -87,9 +87,9 @@ def test_edit_agent_template_failure(mock_get_user_org, mock_auth_db, mock_db):
     session_mock.flush.assert_not_called()
 
 
-@patch('superagi.controllers.agent_template.db')
-@patch('superagi.helper.auth.db')
-@patch('superagi.helper.auth.get_user_organisation')
+@patch('chatdevagi.controllers.agent_template.db')
+@patch('chatdevagi.helper.auth.db')
+@patch('chatdevagi.helper.auth.get_user_organisation')
 def test_edit_agent_template_with_new_config_success(mock_get_user_org, mock_auth_db, mock_db):
     # Create a mock agent template
     mock_agent_template = AgentTemplate(id=1, name="Test Agent Template", description="Test Description")
