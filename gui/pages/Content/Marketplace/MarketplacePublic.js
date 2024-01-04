@@ -20,7 +20,7 @@ export default function MarketplacePublic({env}) {
                                                                            style={{cursor: 'pointer'}}
                                                                            onClick={handleSignupClick}
                                                                            src="/images/sign-in-logo.svg"
-                                                                           alt="super-agi-logo"/>
+                                                                           alt="chat-dev-logo"/>
           <div className={styles.vertical_line}/>
           <div className={styles.topbar_heading}>&nbsp;Marketplace</div>
         </div>

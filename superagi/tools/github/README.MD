@@ -21,7 +21,7 @@ The SuperAGI GitHub Tool enables users to perform various operations on GitHub r
 
 ### 🛠 **Setting Up SuperAGI**
 
-Set up SuperAGI by following the instructions provided in the [SuperAGI repository's README file](https://github.com/TransformerOptimus/SuperAGI/blob/main/README.md).
+Set up SuperAGI by following the instructions provided in the [SuperAGI repository's README file](https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git /blob/main/README.md).
 
 ### 🔧 **Add GitHub Configuration Settings in SuperAGI Dashboard**
 
@@ -31,11 +31,11 @@ Add the following configuration settings to the GitHub Toolkit Page:
    - Obtain a GitHub access token with the necessary permissions for accessing and modifying repositories.
     - Go to Settings in your GitHub Account. Then go to Developer Settings.
     - Click on "Personal access tokens". Then click on "Tokens (classic)".
-    ![personal-access-token](https://github.com/TransformerOptimus/SuperAGI/assets/43145646/ee646cdd-fa04-400b-ae84-e9aee7b46c36)
+    ![personal-access-token](https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git /assets/43145646/ee646cdd-fa04-400b-ae84-e9aee7b46c36)
     - Click on "Generate new token". Then choose "Generate new token (classic)".
-    ![generate-new-token](https://github.com/TransformerOptimus/SuperAGI/assets/43145646/64f1d681-236a-4008-a5d9-93bb368caaaf)
+    ![generate-new-token](https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git /assets/43145646/64f1d681-236a-4008-a5d9-93bb368caaaf)
     - Write a Note about what the token is for and choose an appropriate expiration date.
-    ![github-permissions](https://github.com/TransformerOptimus/SuperAGI/assets/43145646/757b02e8-0b49-47b8-bfef-5469c0d070eb)
+    ![github-permissions](https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git /assets/43145646/757b02e8-0b49-47b8-bfef-5469c0d070eb)
     - Select all the scopes (In this way, users won't have to create new Access Tokens every time we add new scopes to the code).
     - Click on Generate New Token.
     - Copy the token and save it as a separate file. 

@@ -976,16 +976,6 @@ export default function AgentCreate({
                             </div>
                         ))}
                       </div>
-                      <div className="vertical_containers sticky_option">
-                        <div onClick={() => openModelMarket()} className="custom_select_option horizontal_container mxw_100 padding_12_14 gap_6 bt_white">
-                          <Image width={16} height={16} src="/images/marketplace_logo.png" alt="marketplace_logo" />
-                          <span>Browse models from marketplace</span>
-                        </div>
-                        <div onClick={() => openNewTab(-5, "new model", "Add_Model", false)} className="custom_select_option horizontal_container mxw_100 padding_12_14 gap_6 bt_white">
-                          <Image width={16} height={16} src="/images/plus.png" alt="plus_image" />
-                          <span>Add new custom model</span>
-                        </div>
-                      </div>
                     </div>
                 )}
               </div>

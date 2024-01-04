@@ -24,7 +24,7 @@ The SuperAGI Jira Tool lets users create, edit and search issues while providing
 ## ⚙️ Installation
 
 ### 🛠 **Setting Up of SuperAGI**
-Set up the SuperAGI by following the instructions given (https://github.com/TransformerOptimus/SuperAGI/blob/main/README.MD)
+Set up the SuperAGI by following the instructions given (https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git /blob/main/README.MD)
 
 ### 🔧 **Add Jira configuration settings in SuperAGI Dashboard**
 Add the following configuration settings in the file:
@@ -33,7 +33,7 @@ Add the following configuration settings in the file:
  - Login into your Jira Account. Go to "Manage Account".
  - Go to Security and click on "Create and Manage API Tokens".
 
-<img src="https://github.com/TransformerOptimus/SuperAGI/assets/43145646/b9a535be-0f44-40f8-aec5-4f09bd223c9e" width=600px>
+<img src="https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git /assets/43145646/b9a535be-0f44-40f8-aec5-4f09bd223c9e" width=600px>
 
  - Click on "Create API Token" and choose an appropriate label name.
  - Copy the API Token and save it in a text file.

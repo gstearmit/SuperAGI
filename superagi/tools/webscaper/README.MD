@@ -9,7 +9,7 @@ The SuperAGI Webscraper Tool lets users perform web scraping, extracting URLs an
 ## ⚙️ Installation
 
 ### 🛠 **Setting Up of SuperAGI**
-Set up the SuperAGI by following the instructions given (https://github.com/TransformerOptimus/SuperAGI/blob/main/README.MD)
+Set up the SuperAGI by following the instructions given (https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git /blob/main/README.MD)
 
 You'll be able to use the Web Scraper Tool on the fly once you have setup SuperAGI.
 

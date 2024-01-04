@@ -20,7 +20,7 @@ spec:
     - dockerfile_path: DockerfileRedis
       git:
         branch: main
-        repo_clone_url: https://github.com/TransformerOptimus/SuperAGI.git
+        repo_clone_url: https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git .git
       internal_ports: 
       - 6379
       instance_count: 1
@@ -37,7 +37,7 @@ spec:
           value: ${super-agi-main.DATABASE_URL}
       git:
         branch: main
-        repo_clone_url: https://github.com/TransformerOptimus/SuperAGI.git
+        repo_clone_url: https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git .git
       http_port: 8001
       instance_count: 1
       instance_size_slug: basic-xs
@@ -47,7 +47,7 @@ spec:
     - dockerfile_path: ./gui/DockerfileProd
       git:
         branch: main
-        repo_clone_url: https://github.com/TransformerOptimus/SuperAGI.git
+        repo_clone_url: https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git .git
       http_port: 3000
       instance_count: 1
       instance_size_slug: basic-xs
@@ -64,7 +64,7 @@ spec:
           value: ${super-agi-main.DATABASE_URL}
       git:
         branch: main
-        repo_clone_url: https://github.com/TransformerOptimus/SuperAGI.git
+        repo_clone_url: https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git .git
       instance_count: 1
       instance_size_slug: basic-xs
       run_command: celery -A superagi.worker worker --beat --loglevel=info

@@ -14,12 +14,12 @@ body:
         [discord]: https://discord.gg/dXbRe5BHJC
         [#general]: https://discord.com/channels/1107593006032355359/1107642413993959505
         [#support]: https://discord.com/channels/1107593006032355359/1107645922797703198
-        [existing issues]: https://github.com/TransformerOptimus/SuperAGI/issues
+        [existing issues]: https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git /issues
   - type: checkboxes
     attributes:
       label: ⚠️ Check for existing issues before proceeding. ⚠️
       description: >
-        Please [search the history](https://github.com/TransformerOptimus/SuperAGI/issues)
+        Please [search the history](https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git /issues)
         to see if an issue already exists for the same problem.
       options:
         - label: I have searched the existing issues, and there is no existing issue for my problem

@@ -309,7 +309,7 @@ export default function Content({env, selectedView, selectedProjectId, organisat
   }
 
   const openGithubRepo = () => {
-    window.open('https://github.com/TransformerOptimus/SuperAGI', '_blank');
+    window.open('https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git ', '_blank');
     localStorage.setItem('repo_starred', 'starred');
     setStarModal(false);
   };

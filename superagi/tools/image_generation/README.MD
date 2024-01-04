@@ -9,7 +9,7 @@ The SuperAGI Image Generation Tool helps you generate an image with a prompt usi
 ## ⚙️ Installation
 
 ### 🛠 **Setting Up of SuperAGI**
-Set up the SuperAGI by following the instructions given (https://github.com/TransformerOptimus/SuperAGI/blob/main/README.MD)
+Set up the SuperAGI by following the instructions given (https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git /blob/main/README.MD)
 
 If you've put the correct OpenAI key during the installation, you'd be able to use the Image Generation tool as well.
 

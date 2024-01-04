@@ -20,7 +20,7 @@ The robust SuperAGI Coding Tool lets help with their coding tasks like writing, 
 ## ⚙️ Installation
 
 ### 🛠 **Setting Up of SuperAGI**
-Set up the SuperAGI by following the instructions given (https://github.com/TransformerOptimus/SuperAGI/blob/main/README.MD)
+Set up the SuperAGI by following the instructions given (https://github.com/ebit.tpb.vn/gitlab/PhucHC/chatdev2.0.git /blob/main/README.MD)
 
 You'll be able to use the Coding Tool on the fly once you have setup SuperAGI.
 
