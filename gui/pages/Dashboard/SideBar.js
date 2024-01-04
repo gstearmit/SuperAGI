@@ -8,9 +8,7 @@ export default function SideBar({onSelectEvent, env}) {
 
     const sections = [
         { name: 'agents', icon: '/images/agents_light.svg' },
-        { name: 'toolkits', icon: '/images/tools_light.svg' },
         { name: 'apm', icon: '/images/apm.svg' },
-        { name: 'knowledge', icon: '/images/knowledge.svg' },
         { name: 'models', icon: '/images/models.svg'},
     ];
 
@@ -25,8 +23,7 @@ export default function SideBar({onSelectEvent, env}) {
 
     return (
         <div className="side_bar">
-            <Image width={72} height={56} className="cursor_default mt_4 mb_4"
-                   src={env === 'PROD' ? '/images/superagi_logo_beta.png' : '/images/superagi_logo.png'} alt="logo"/>
+            <div className="cursor_default mt_4 mb_4" width="72" height="56" > </div>
 
             {sections.map((section) => (
                 <div key={section.name} className="w_100 mb_5">
