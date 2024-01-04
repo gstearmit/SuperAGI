@@ -16,7 +16,7 @@ export default function MarketplacePublic({env}) {
   return (
     <div style={{height: '100vh', width: '100%'}}>
       <div className={styles.marketplace_public_container}>
-        <div className="superAgiLogo" style={{paddingLeft: '15px'}}><Image width={132} height={24}
+        <div className="Logo" style={{paddingLeft: '15px'}}><Image width={132} height={24}
                                                                            style={{cursor: 'pointer'}}
                                                                            onClick={handleSignupClick}
                                                                            src="/images/sign-in-logo.svg"

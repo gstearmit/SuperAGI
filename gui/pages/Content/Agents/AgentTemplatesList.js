@@ -99,7 +99,7 @@ export default function AgentTemplatesList({
                                                      src="/images/arrow_outward.svg" alt="arrow-outward"/></div>
                   </div>
                   <div className={styles.tool_description}>
-                    SuperAGI marketplace offers a large selection of templates to choose from, so you are sure to find
+                    ChatDev AGI 2.0 marketplace offers a large selection of templates to choose from, so you are sure to find
                     one that is right for you!
                   </div>
                 </div>

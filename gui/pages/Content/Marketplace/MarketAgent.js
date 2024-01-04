@@ -52,7 +52,7 @@ export default function MarketAgent() {
             <div className="market_containers cursor_pointer" key={item.id} onClick={() => handleTemplateClick(item)}>
               <div className="vertical_containers overflow_auto">
                 <div>{item.name}</div>
-                <div className="color_gray lh_16">by SuperAgi&nbsp;<Image width={14} height={14}
+                <div className="color_gray lh_16">by ChatDev AGI 2.0&nbsp;<Image width={14} height={14}
                                                                                             src="/images/is_verified.svg"
                                                                                             alt="is_verified"/></div>
                 <div className="text_ellipsis mt_8 color_gray">{item.description}</div>

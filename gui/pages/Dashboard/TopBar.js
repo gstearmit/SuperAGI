@@ -33,7 +33,7 @@ export default function TopBar({selectedProject, userName, env}) {
     if (option === 'Models') {
       setSelectedImagePath("/images/models_icon_dropdown.svg")
       setSelectedOption('Models')
-      window.location.href = 'https://models.superagi.com'
+      window.location.href = '#'
     } else {
       setSelectedImagePath("/images/agents_icon_dropdown.svg")
       setSelectedOption('Agents')
@@ -72,24 +72,12 @@ export default function TopBar({selectedProject, userName, env}) {
             <div className="top_bar_font">{selectedProject?.name || ''}</div>
           </div>
         </div>
-        <div className="top_bar_section ml_7 cursor_pointer">
-          <Image width={14} height={14} src="/images/widgets.svg" alt="widgets-icon"/>
-          <div className="top_bar_font" onClick={() => openNewTab(-4, "Marketplace", "Marketplace", false)}>Marketplace</div>
-        </div>
       </div>
       <div className="top_right">
         <div className="horizontal_container gap_20">
-          <div className="horizontal_container w_fit_content cursor_pointer gap_4" onClick={() => {window.open("https://superagi.com/docs", "_blank"); getUserClick('SuperAGI Docs Visited', {})}}>
+          <div className="horizontal_container w_fit_content cursor_pointer gap_4" onClick={() => {window.open("#", "_blank"); getUserClick('Docs Visited', {})}}>
             <Image width={20} height={20} src="/images/docs_icon.svg" alt="docs-icon" />
             <p className="top_bar_font">Docs</p>
-          </div>
-          <div className="horizontal_container w_fit_content cursor_pointer gap_4" onClick={() => window.open("https://discord.com/invite/dXbRe5BHJC", "_blank")}>
-            <Image width={20} height={20} src="/images/discord.svg" alt="discord-icon" />
-            <p className="top_bar_font">Get Help</p>
-          </div>
-          <div className="horizontal_container w_fit_content cursor_pointer gap_4" onClick={() => window.open("https://github.com/TransformerOptimus/SuperAGI", "_blank")}>
-            <Image width={20} height={20} src="/images/github_white.svg" alt="github-icon" />
-            <p className="top_bar_font">Github</p>
           </div>
         </div>
 

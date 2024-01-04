@@ -35,7 +35,7 @@ export default function App() {
   const [userName, setUserName] = useState('');
   const [organisationId, setOrganisationId] = useState(null);
   const [env, setEnv] = useState('DEV');
-  const [loadingText, setLoadingText] = useState("Initializing SuperAGI");
+  const [loadingText, setLoadingText] = useState("Initializing ChatDev AGI 2.0");
   const router = useRouter();
   const [showMarketplace, setShowMarketplace] = useState(false);
   const excludedKeys = [
@@ -105,7 +105,7 @@ export default function App() {
 
   useEffect(() => {
     handleMarketplace()
-    loadingTextEffect('Initializing SuperAGI', setLoadingText, 500);
+    loadingTextEffect('Initializing ChatDev AGI 2.0', setLoadingText, 500);
 
     checkEnvironment()
       .then((response) => {
@@ -270,7 +270,7 @@ export default function App() {
   return (
     <div className="app">
       <Head>
-        <title>SuperAGI</title>
+        <title>ChatDev AGI 2.0</title>
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet"/>
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
@@ -293,8 +293,8 @@ export default function App() {
         </div>
       </div>) : !showMarketplace ? (<div className="signInStyle">
         <div className="signInTopBar">
-          <div className="superAgiLogo"><Image width={132} height={72} src="/images/sign-in-logo.svg"
-                                               alt="super-agi-logo"/></div>
+          <div className="ChatDevAGI2.0Logo"><Image width={132} height={72} src="/"
+                                               alt="ChatDev AGI 2.0 logo"/></div>
         </div>
         <div className="signInCenter">
           {applicationState === 'NOT_AUTHENTICATED' && !showMarketplace ? <div className="signInWrapper">

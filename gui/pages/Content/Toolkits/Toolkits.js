@@ -30,7 +30,7 @@ export default function Toolkits({sendToolkitData, toolkits, env}) {
                              alt="tool-icon"/>
                         <div className="ml_8">
                           <div className="item_name">{tool.name}</div>
-                          <div className="item_publisher">by SuperAGI</div>
+                          <div className="item_publisher">by ChatDev AGI 2.0</div>
                         </div>
                       </div>
                     </div>
