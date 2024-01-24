@@ -1,0 +1,838 @@
+{
+	"info": {
+		"_postman_id": "9a0974c4-9102-405e-9299-a77e53dd246a",
+		"name": "CHATDEV-AGI-AI-2024",
+		"description": "Generate API Key\n\n- To use the key in your API call, pass it in the headers as shown below:\n- To generate a new API key, navigate to the `API Keys Dashboard` on the `Settings` page in ChatDevAGI .\n    \n- Click on `Create key` and give a name for your API key.\n    \n- **Copy the key generated** and click on `OK`.\n    \n\n## Authentication\n\nAuthentication to the ChatDevAGI API is performed by passing `X-API-Key` in headers.\n\n```\nX-API-Key: yourchatdevagiapikey\n\n ```\n\n## Cloud API baseurl\n\n```\nCloud baseurl\nhttps://app.chatdevagi.com\nEg. On ChatDevAGI cloud, create agent API endpoint would look like\nhttps://app.chatdevagi.com/api/v1/agent\n\n ```\n\n## Local API baseurl\n\n```\nLocal baseurl\nhttp://localhost:3000\nEg. On ChatDevAGI local, create agent API endpoint would look like\nhttp://localhost:3000/api/v1/agent\n\n ```",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "143841"
+	},
+	"item": [
+		{
+			"name": "Agent",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "110e030a-2d27-4d6d-90ba-4f7b7ceee4e2",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Aug 17 MS 2606\",\n    \"description\": \"AI assistant to solve complex problems\",\n    \"goal\": [\"create a photo of a cat\"],\n    \"agent_workflow\": \"Goal Based Workflow\", \n    \"constraints\": [\n        \"~4000 word limit for short term memory.\",\n        \"Your short term memory is short, so immediately save important information to files.\",\n        \"If you are unsure how you previously did something or want to recall past events, thinking about similar events will help you remember.\",\n        \"No user assistance\",\n        \"Exclusively use the commands listed in double quotes e.g. \\\"command name\\\"\"\n    ],\n    \"instruction\": [],\n    \"tools\":[\n        {   \n            \"name\":\"Image Generation Toolkit\"\n        },\n        {   \n            \"name\":\"DuckDuckGo Search Toolkit\"\n        }\n    ],\n    \"iteration_interval\": 500,\n    \"model\": \"gpt-4\",\n    \"max_iterations\": 25,\n    \"schedule\": { // can be null if for agent without schedule\n        \"start_time\": \"2023-08-14 21:32:00\",\n        \"recurrence_interval\": \"2 Minutes\",\n        \"expiry_runs\": 2,\n        \"expiry_date\": null\n      }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent"
+							]
+						},
+						"description": "This endpoint allows users to create agents\n\n| **Parmeter** | **Type** | **Description** | **Required** |\n| --- | --- | --- | --- |\n| name | string | Name of the agent. | yes |\n| description | string | Desciption of the agent. | yes |\n| goals | array of strings | What the agent is supposed to achieve. | yes |\n| agent_workflow | string | Below are supported values for agent workflow:  <br>`Goal Based Workflow`  <br>`Dynamic Task Workflow`  <br>`Fixed Task Workflow`  <br>  <br>These values are case sensitive. | yes |\n| constraints | array of strings | Agent contraints like like use as mininum tokens and interations as possible. See API example to know more. | yes |\n| instructions | array of strings | These are very specific instructions |  |\n| tools | array of maps | Supported toolkit names are:  <br>`CodingToolkit`  <br>`File Toolkit`  <br>  <br>Pass \\`\\[\\]\\` if you don't want to use any tool. | yes |\n| iteration_interval | int | Time to wait between each iterations |  |\n| model | string | Below are supported values for models:  <br>`gpt-4`  <br>`gpt-3.5-turbo`  <br>`gpt-3.5-turbo-16k` | yes |\n| max_iterations | int | Max number of iterations agent can run for. | yes |\n| schedule | object | Run schudule for an agent | no |\n\n### Schedule object\n\n| **Parameter** | **Type** | **Description** | **Required** |\n| --- | --- | --- | --- |\n| start_time | string | Start time of agent schedule. | yes |\n| recurrence_interval | string | Time interval after which agent run is triggered. Eg.  <br>`3 hours`  <br>`5 days` | no |\n| expiry_runs | int | After how many runs the scheduled agent should stop | no |\n| expiry_date | string | Expiry time of agent schedule. Can be \\`null\\` if expiry_data is not required. | no |"
+					},
+					"response": [
+						{
+							"name": "Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-Key",
+										"value": "08dbfc9b-41fb-4cd6-9f68-85ee834a9ff7",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"test final 100212dsaCXZCa33\",\n    \"description\": \"AI assistant to solve complex problems\",\n    \"goal\": [\"CREATE A PHOTO OF A CAT\"],\n    \"agent_workflow\": \"Goal Based Workflow\", \n    \"constraints\": [\n        \"~4000 word limit for short term memory.\",\n        \"Your short term memory is short, so immediately save important information to files.\",\n        \"If you are unsure how you previously did something or want to recall past events, thinking about similar events will help you remember.\",\n        \"No user assistance\",\n        \"Exclusively use the commands listed in double quotes e.g. \\\"command name\\\"\"\n    ],\n    \"instruction\": [],\n    \"tools\":[\n        {   \n            \"name\":\"Image Generation Toolkit\"\n        },\n        {   \n            \"name\":\"DuckDuckGo Search Toolkit\"\n        }\n    ],\n    \"iteration_interval\": 500,\n    \"model\": \"gpt-4\",\n    \"max_iterations\": 25,\n    \"schedule\": null // Can be null for an agent without a schedule\n    // \"schedule\": { // Use this to run agent with a schedule\n    //     \"start_time\": \"2023-08-14 21:32:00\",\n    //     \"recurrence_interval\": \"2 Hours\",\n    //     \"expiry_runs\": 2,\n    //     \"expiry_date\": null\n    //   }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/agent",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"agent"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.24.0"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Aug 2023 14:13:22 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"agent_id\": 28\n}"
+						}
+					]
+				},
+				{
+					"name": "Pause",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "fbb4f20f-37c9-4356-bbf4-b25c8bf682ee",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"run_ids\":[1]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent/1/pause",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent",
+								"1",
+								"pause"
+							]
+						},
+						"description": "This endpoint allows users to pause agent runs\n\n| **Parameter** | **Type** | **Description** | **Required** |\n| --- | --- | --- | --- |\n| agent_id | path param: int | Id of the agent to pause the runs for. | yes |\n| run_ids | array of ints | Array of agent `run_id`s to pause. If you pass `run_ids` as empty array `[]` , all runs for the `agent_id` will be paused. | no |"
+					},
+					"response": [
+						{
+							"name": "Pause",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-Key",
+										"value": "bf2b13a0-c5d3-403f-a887-ac8849b8304b",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"run_ids\":[18]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/agent/{agent_id}/pause",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"agent",
+										"{agent_id}",
+										"pause"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.24.0"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Aug 2023 14:04:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "20"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Resume",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "e3347a48-c4f0-4fcc-b444-7a375473c712",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"run_ids\":[98,100,102]\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent/{agent_id}/resume",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent",
+								"{agent_id}",
+								"resume"
+							]
+						},
+						"description": "This endpoint allows users to resume agent runs\n\n| **Parameter** | **Type** | **Description** | **Required** |\n| --- | --- | --- | --- |\n| agent_id | path param: int | Id of the agent for runs to resume. | yes |\n| run_ids | array of ints | Array of agent `run_id`s to resume. If you pass `run_ids` as empty array `[]` to all agent runs will be resumed. | no |"
+					},
+					"response": [
+						{
+							"name": "Resume",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-Key",
+										"value": "bf2b13a0-c5d3-403f-a887-ac8849b8304b",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"run_ids\":[25]\n} ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/agent/{agent_id}/resume",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"agent",
+										"{agent_id}",
+										"resume"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.24.0"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Aug 2023 14:13:36 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "20"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "e3347a48-c4f0-4fcc-b444-7a375473c712",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Aug 17 0626\",\n    \"description\": \"AI assistant to solve complex problems\",\n    \"goal\": [\"compare iphone 15 and iphone 14 base variant\"],\n    \"agent_workflow\": \"Don't Maintain Task Queue\", \n    \"constraints\": [\n        \"~4000 word limit for short term memory.\",\n        \"Your short term memory is short, so immediately save important information to files.\",\n        \"If you are unsure how you previously did something or want to recall past events, thinking about similar events will help you remember.\",\n        \"No user assistance\",\n        \"Exclusively use the commands listed in double quotes e.g. \\\"command name\\\"\"\n    ],\n    \"instruction\": [],\n    \"tools\":[\n        {   \n            \"name\":\"Image Generation Toolkit\"\n        },\n        {   \n            \"name\":\"DuckDuckGo Search Toolkit\"\n        }\n    ],\n    \"iteration_interval\": 500,\n    \"model\": \"gpt-4\",\n    \"max_iterations\": 25\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent/{agent_id}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent",
+								"{agent_id}"
+							]
+						},
+						"description": "This endpoint allows users to update an existing agent.\n\n**Note**:\n\nUsers can't add schedule to an existing agent using the update end point.\n\n| **Parmeter** | **Type** | **Description** | **Required** |\n| --- | --- | --- | --- |\n| agent_id | path param: int | Id of the agent to update. | yes |\n| name | string | Name of the agent. | no |\n| description | string | Desciption of the agent. | no |\n| goals | array of strings | What the agent is supposed to achieve. | yes |\n| agent_workflow | string | Below are supported values for agent workflow:  <br>  <br>`Goal Based Workflow`  <br>`Dynamic Task Workflow`  <br>`Fixed Task Workflow`  <br>  <br>These values are case sensitive. | yes |\n| constraints | array of strings | Agent contraints like like use as mininum tokens and interations as possible. See API example to know more. | yes |\n| instruction | array of strings | Specific instructions given to agent to complete the goal in a pre-defined way. |  |\n| tools | array of maps | Supported toolkit names are:  <br>`CodingToolkit`  <br>`File Toolkit`  <br>  <br>Pass \\`\\[\\]\\` if you don't want to use any tool. | yes |\n| iteration_interval | int | Time to wait between each iteration. | yes |\n| model | string | Below are supported values for models:  <br>`gpt-4`  <br>`gpt-3.5-turbo`  <br>`gpt-3.5-turbo-16k` | yes |\n| max_iterations | int | Max number of iterations agent can run for. | yes |"
+					},
+					"response": [
+						{
+							"name": "Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-API-Key",
+										"value": "c6c2a6b3-3bba-41eb-a031-c767a645e9e9",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"dasdas test_100dasdrreterterteasffffffffffffffffffffff1_updated\",\n    \"org_id\": 1,\n    \"description\": \"AI assistant to solve complex problems\",\n    \"goal\": [\"compare iphone 15 and iphone 14 base variant\"],\n    \"agent_workflow\": \"Don't Maintain Task Queue\", \n    \"constraints\": [\n        \"~4000 word limit for short term memory.\",\n        \"Your short term memory is short, so immediately save important information to files.\",\n        \"If you are unsure how you previously did something or want to recall past events, thinking about similar events will help you remember.\",\n        \"No user assistance\",\n        \"Exclusively use the commands listed in double quotes e.g. \\\"command name\\\"\"\n    ],\n    \"instruction\": [],\n    \"tools\":[\n        {   \n            \"name\":\"Image Generation Toolkit\"\n        },\n        {   \n            \"name\":\"DuckDuckGo Search Toolkit\"\n        }\n    ],\n    \"iteration_interval\": 500,\n    \"model\": \"gpt-4\",\n    \"max_iterations\": 25\n    // \"schedule\": { \n    // \"start_time\": \"2023-07-07 06:15:00\",\n    // \"recurrence_interval\": \"5 Minutes\",\n    // \"expiry_runs\": 2,\n    // \"expiry_date\": null\n    // }\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/agent/72",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"agent",
+										"72"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.24.0"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 18 Aug 2023 05:55:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"agent_id\": 72\n}"
+						}
+					]
+				},
+				{
+					"name": "{{URL}}/api/v1/agent",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "fbb4f20f-37c9-4356-bbf4-b25c8bf682ee",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Agent create from postman 01\",\n    \"description\": \"AI assistant to solve complex problems\",\n    \"goal\": [\"CREATE A PHOTO OF AI\"],\n    \"agent_workflow\": \"Goal Based Workflow\", \n    \"constraints\": [\n        \"~4000 word limit for short term memory.\",\n        \"Your short term memory is short, so immediately save important information to files.\",\n        \"If you are unsure how you previously did something or want to recall past events, thinking about similar events will help you remember.\",\n        \"No user assistance\",\n        \"Exclusively use the commands listed in double quotes e.g. \\\"command name\\\"\"\n    ],\n    \"instruction\": [],\n    \"tools\":[\n        {   \n            \"name\":\"Image Generation Toolkit\"\n        },\n        {   \n            \"name\":\"DuckDuckGo Search Toolkit\"\n        }\n    ],\n    \"iteration_interval\": 500,\n    \"model\": \"gpt-4\",\n    \"max_iterations\": 25,\n    \"schedule\": null // Can be null for an agent without a schedule\n    // \"schedule\": { // Use this to run agent with a schedule\n    //     \"start_time\": \"2023-08-14 21:32:00\",\n    //     \"recurrence_interval\": \"2 Hours\",\n    //     \"expiry_runs\": 2,\n    //     \"expiry_date\": null\n    //   }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{URL}}/api/v1/agent-SuperCode",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "fbb4f20f-37c9-4356-bbf4-b25c8bf682ee",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"ChatDevAGIV2.0\",\n    \"description\": \"AI assistant to solve complex problems\",\n    \"goal\": [\"develop a website similar to https://tpb.vn/ca-nhan. The website will be built using Angular 2 for the front-end and Java Spring Boot for the back-end. The system will be deployed using Kubernetes (K8S) and the database used will be Oracle\",\n           \"Angular 2 For developing the front-end\",\"Java Spring Boot For developing the back-end\", \n           \"Kubernetes (K8S) For deployment\"\n           ],\n    \"agent_workflow\": \"Goal Based Workflow\", \n    \"constraints\": [\n        \"~4000 word limit for short term memory.\",\n        \"Your short term memory is short, so immediately save important information to files.\",\n        \"If you are unsure how you previously did something or want to recall past events, thinking about similar events will help you remember.\",\n        \"No user assistance\",\n        \"Exclusively use the commands listed in double quotes e.g. \\\"command name\\\"\",\n        \"Ensure the command and args are as per current plan and reasoning\",\n        \"Exclusively use the tools listed in double quotes e.g. \\\"tool name\\\"\",\n        \"REMEMBER to format your response as JSON, using double quotes (\\\"\\\") around keys and string values, and commas (,) to separate items in arrays and objects. IMPORTANTLY, to use a JSON object as a string in another JSON object, you need to escape the double quotes.\"\n    ],\n    \"instruction\": [\n        \"Write Specification for the code.\",\n        \"Write the Code\",\n        \"Write Test-Cases\",\n        \"The system will be divided into multiple microservices based on domain driven design.\",\n        \"Each microservice will have its own database and will communicate with other microservices through APIs\"\n        ],\n    \"tools\":[\n        {   \n            \"name\":\"CodingToolkit\"\n        },\n        {   \n            \"name\":\"File Toolkit\"\n        }\n    ],\n    \"iteration_interval\": 500,\n    \"model\": \"gpt-4\",\n    \"max_iterations\": 60,\n    \"schedule\": null // Can be null for an agent without a schedule\n    // \"schedule\": { // Use this to run agent with a schedule\n    //     \"start_time\": \"2023-08-14 21:32:00\",\n    //     \"recurrence_interval\": \"2 Hours\",\n    //     \"expiry_runs\": 2,\n    //     \"expiry_date\": null\n    //   }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Agents in ChatDevAGI :\n\nThe Agents, plan, reason, interact with toolkits, and execute based on the user's Goals, Instructions, Resources, and Constraints to achieve the expected results."
+		},
+		{
+			"name": "Run",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "fbb4f20f-37c9-4356-bbf4-b25c8bf682ee",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent/1/run",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent",
+								"1",
+								"run"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint allows users to create an agent run\n\n| **Parameter** | **Type** | **Description** | **Required** |\n| --- | --- | --- | --- |\n| agent_id | path param: int | Id of the agent to create runs for. | yes |"
+					},
+					"response": [
+						{
+							"name": "Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-Key",
+										"value": "bf2b13a0-c5d3-403f-a887-ac8849b8304b",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/agent/{agent_id}/run",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"agent",
+										"{agent_id}",
+										"run"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.24.0"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Aug 2023 14:14:13 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "13"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"run_id\": 40\n}"
+						}
+					]
+				},
+				{
+					"name": "Retrieve Agent Runs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "fbb4f20f-37c9-4356-bbf4-b25c8bf682ee",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"run_status_filter\":\"RUNNING\" // run_status_filter could be values like RUNNING, PAUSED, COMPLETED\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent/2/run-status",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent",
+								"2",
+								"run-status"
+							],
+							"query": [
+								{
+									"key": "run_ids",
+									"value": "[78,79]",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint allows users to retrieve an agent runs\n\n| **Parameter** | **Type** | **Description** | **Required** |\n| --- | --- | --- | --- |\n| agent_id | path param: int | Id of the agent to retrieve agent runs for | yes |\n| run_status_filter | string | Below are the supported values for run_status_filter:  <br>`RUNNING`  <br>`PAUSED`  <br>`COMPLETED`  <br>  <br>Only one value for `run_status_filter` should be passed at a time.  <br>  <br>If this param is NOT passed in the request body, api will return statuses of all agent runs | no |\n| run_ids | array of int | List of agent `run_id`s to fetch run status for.  <br>  <br>If this param is NOT passed in the request body, api will return statuses of all agent runs | no |"
+					},
+					"response": [
+						{
+							"name": "Retrieve Agent Runs",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-Key",
+										"value": "08dbfc9b-41fb-4cd6-9f68-85ee834a9ff7",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"run_status_filter\":\"RUNNING\" // run_status_filter could be values like RUNNING, PAUSED, COMPLETED\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/agent/7/run-status",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"agent",
+										"7",
+										"run-status"
+									],
+									"query": [
+										{
+											"key": "run_ids",
+											"value": "[78,79]",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.24.0"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Aug 2023 14:05:09 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "34"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"run_id\": 39,\n        \"status\": \"RUNNING\"\n    }\n]"
+						}
+					]
+				}
+			],
+			"description": "An agent run is the end-to-end execution of the goals and instructions that has been assigned to the agent, operating within the set constraints with the necessary tools and resources."
+		},
+		{
+			"name": "Resources",
+			"item": [
+				{
+					"name": "Retrieve Run Resources",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "fbb4f20f-37c9-4356-bbf4-b25c8bf682ee",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"run_ids\":[97,98,99,100,101,102]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/agent/resources/output",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agent",
+								"resources",
+								"output"
+							]
+						},
+						"description": "This endpoint allows users to retrieve resources of an agent run\n\n| **Parameter** | **Type** | **Description** | **Required** |\n| --- | --- | --- | --- |\n| run_ids | array of int | List of agent `run_id`s to fetch resources for. | yes |"
+					},
+					"response": [
+						{
+							"name": "Get Run Resources",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-Key",
+										"value": "bf2b13a0-c5d3-403f-a887-ac8849b8304b",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"run_ids\":[38]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/agent/resources/output",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"agent",
+										"resources",
+										"output"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.24.0"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Aug 2023 14:15:16 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "99"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"38\": [\n        \"https://tool.s3.amazonaws.com/public_resources/run_id38/cat_image_running.png\",\n        \"https://tool.s3.amazonaws.com/public_resources/run_id38/cat_image_jumping.png\"\n    ],\n    \"39\": [\n        \"https://tool.s3.amazonaws.com/public_resources/run_id38/cat_image_small.png\"\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "Resources are the input/output files used or generated by the agent during its run."
+		}
+	],
+	"variable": [
+		{
+			"key": "API_KEY",
+			"value": "856ab32f-72e5-4d19-8672-f6adb3f0647f"
+		},
+		{
+			"key": "agent_id",
+			"value": "2"
+		}
+	]
+}
